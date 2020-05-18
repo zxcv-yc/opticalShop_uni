@@ -70,8 +70,61 @@
 				</swiper>
 			</uni-swiper-dot>
 		</view>
-		<view class="">
-			1212
+		<view class="u-p-30">
+			<image src="../../static/images/copy/banner.png" mode="widthFix" style="width: 100%;"></image>
+		</view>
+		<view class="u-p-l-30 u-p-r-30">
+			<view class="jus-start u-p-30 news_box border_radius_10">
+				<image src="../../static/images/copy/zaobao.png" mode="widthFix" style="width: 130upx;"></image>
+				<view class="u-m-l-20 u-m-r-20" style="color: #DDDDDD;">|</view>
+				<view class="text-main u-font-26">
+					商城最新新品上新,各种特色美瞳上线
+				</view>
+			</view>
+			<view class="jus-spB u-m-t-30 u-m-b-30">
+				<view class="left_box border_radius_10">
+					<view class="jus-start u-p-l-40">
+						<image src="../../static/images/copy/hot.png" mode="widthFix" style="width: 30upx;"></image>
+						<view class="u-font-30 u-m-l-20 u-m-b-15">
+							精选品牌
+						</view>
+					</view>
+					<view class="text-tips u-font-22 u-p-l-40 u-p-b-40">
+						必买订单，今日优选
+					</view>
+					<image src="../../static/images/copy/asdf.png" mode="aspectFill" style="width: 270upx;height: 168upx; margin: 0 auto;"></image>
+				</view>
+				<view class="right_box jus-spB-col">
+					<view class="right_top_box border_radius_10 jus-spB">
+						<view class="u-text-left">
+							<view class="u-font-30 u-m-l-30 u-m-b-15">
+								限时抢购
+							</view>
+							<view class="text-tips u-font-22 u-p-l-30 u-p-b-40">
+								今日优选
+							</view>
+						</view>
+						<image src="../../static/images/copy/qwer.png" mode="aspectFill" style="height: 124upx;width: 124upx;" class="u-m-r-30 u-m-t-30"></image>
+					</view>
+					<view class="right_bottom_box border_radius_10 jus-spB">
+						<view class="u-text-left">
+							<view class="u-font-30 u-m-l-30 u-m-b-15">
+								限时抢购
+							</view>
+							<view class="text-tips u-font-22 u-p-l-30 u-p-b-40">
+								今日优选
+							</view>
+						</view>
+						<image src="../../static/images/copy/zxc.png" mode="aspectFill" style="height: 124upx;width: 124upx;" class="u-m-r-30 u-m-t-30"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="goods_list_box">
+			<view class="tab_box">
+				<u-tabs ref="tabs" :list="tabList" bar-height="6" bar-width="40" active-color="#FF0000" name="cate_name" :bg-color="tabBgColor"
+				 @change="clickTab" :current="tabIndex"></u-tabs>
+			</view>
 		</view>
 	</view>
 </template>
@@ -95,9 +148,30 @@
 				],
 				menuList: [],
 				current: 0,
-				dotsStyles:{
-					selectedBackgroundColor:'#667E87'
-				}
+				dotsStyles: {
+					selectedBackgroundColor: '#667E87'
+				},
+				tabIndex: 0,
+				tabList: [{
+					cate_name: '待收货'
+				}, {
+					cate_name: '待付款'
+				}, {
+					cate_name: '待评价'
+				}, {
+					cate_name: '待评价'
+				}, {
+					cate_name: '待评价'
+				}, {
+					cate_name: '待评价'
+				}, {
+					cate_name: '待评价'
+				}, {
+					cate_name: '待评价'
+				}, {
+					cate_name: '待评价'
+				}],
+				tabBgColor: '#EDEDED'
 			}
 		},
 		onLoad() {
@@ -182,6 +256,13 @@
 			},
 			swiperChange: function(e) {
 				this.current = e.detail.current;
+			},
+			scroll: function(e) {
+				console.log(e)
+				this.old.scrollTop = e.detail.scrollTop
+			},
+			clickTab: function(e) {
+				this.tabIndex = e;
 			}
 		}
 	}
@@ -203,5 +284,59 @@
 		width: 110upx;
 		height: 110upx;
 		margin: 0 auto;
+	}
+
+	.news_box {
+		background-color: #F9F9F9;
+	}
+
+	.left_box {
+		background-color: #FFF9EC;
+		padding-top: 40upx;
+		width: calc(50% - 15upx);
+		height: 340upx;
+	}
+
+	.right_top_box {
+		height: calc(50% - 15upx);
+		background-color: #FFF6F4;
+	}
+
+	.right_box {
+		height: 100%;
+		width: calc(50% - 15upx);
+		height: 340upx;
+	}
+
+	.right_bottom_box {
+		height: calc(50% - 15upx);
+		background-color: #E8F6FF;
+	}
+
+	.goods_list_box {
+		padding: 30upx;
+		background-color: #EDEDED;
+	}
+
+
+
+	.uni-bg-red {
+		background: red;
+	}
+
+	.uni-bg-green {
+		background: green;
+	}
+
+	.uni-bg-blue {
+		background: blue;
+	}
+
+	.scroll-view-item_H {
+		display: inline-block;
+		width: 150px;
+		height: 150px;
+		padding-left: 10rpx;
+		text-align: center;
 	}
 </style>
