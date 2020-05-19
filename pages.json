@@ -36,7 +36,14 @@
 				"navigationStyle": "custom"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/member/member",
+            "style" : {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "会员邀请码"
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uView",
