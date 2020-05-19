@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="backTop">
+		<view class="backTop" @click="backTop" v-if="isShowTop">
 			<image src="../../static/images/zhiding.png" mode="widthFix"></image>
 		</view>
 		<view class="jus-spB u-p-30">
@@ -197,7 +197,7 @@
 						</view>
 					</template>
 				</u-waterfall>
-				<u-loadmore bg-color="rgb(240, 240, 240)" :status="loadStatus" @loadmore="addRandomData"></u-loadmore>
+				<u-loadmore bg-color="rgb(240, 240, 240)" :status="loadStatus" @loadmore="aa"></u-loadmore>
 			</view>
 		</view>
 	</view>
@@ -205,15 +205,17 @@
 
 <script>
 	import uniSwiperDot from "@/components/uni-swiper-dot/uni-swiper-dot.vue"
-	
+
 	export default {
 		components: {
 			uniSwiperDot,
-			
+
 		},
 		data() {
 			return {
 				title: 'Hello',
+				isShowTop: false,
+				listTop: null,
 				swiperList: [{
 						image: '../../static/images/copy/images%20(10).png'
 					},
@@ -318,23 +320,109 @@
 						shop: '李白杜甫白居易旗舰店',
 						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
 					},
+				],
+				a_list: [{
+						price: 0,
+						title: '北国风光，千里冰封，万里雪飘',
+						shop: '李白杜甫白居易旗舰店',
+						image: 'http://pic.sc.chinaz.com/Files/pic/pic9/202002/zzpic23327_s.jpg',
+					},
+					{
+						price: 1,
+						title: '望长城内外，惟余莽莽',
+						shop: '李白杜甫白居易旗舰店',
+						image: 'http://pic.sc.chinaz.com/Files/pic/pic9/202002/zzpic23325_s.jpg',
+					},
+					{
+						price: 2,
+						title: '大河上下，顿失滔滔',
+						shop: '李白杜甫白居易旗舰店',
+						image: 'http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg',
+					},
+					{
+						price: 3,
+						title: '欲与天公试比高',
+						shop: '李白杜甫白居易旗舰店',
+						image: 'http://pic2.sc.chinaz.com/Files/pic/pic9/202002/zzpic23369_s.jpg',
+					},
+					{
+						price: 4,
+						title: '须晴日，看红装素裹，分外妖娆',
+						shop: '李白杜甫白居易旗舰店',
+						image: 'http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2130_s.jpg',
+					},
+					{
+						price: 5,
+						shop: '李白杜甫白居易旗舰店',
+						title: '江山如此多娇，引无数英雄竞折腰',
+						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23346_s.jpg',
+					},
+					{
+						price: 6,
+						shop: '李白杜甫白居易旗舰店',
+						title: '惜秦皇汉武，略输文采',
+						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23344_s.jpg',
+					},
+					{
+						price: 7,
+						title: '唐宗宋祖，稍逊风骚',
+						shop: '李白杜甫白居易旗舰店',
+						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
+					},
+					{
+						price: 8,
+						title: '一代天骄，成吉思汗',
+						shop: '李白杜甫白居易旗舰店',
+						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
+					},
+					{
+						price: 9,
+						title: '只识弯弓射大雕',
+						shop: '李白杜甫白居易旗舰店',
+						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
+					},
+					{
+						price: 10,
+						title: '俱往矣，数风流人物，还看今朝',
+						shop: '李白杜甫白居易旗舰店',
+						image: 'http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23343_s.jpg',
+					},
 				]
 			}
 		},
 		onLoad() {
 			this.allRequest()
 		},
+		onPageScroll(e) {
+			if (e.scrollTop > this.listTop) {
+				this.isShowTop = 1
+			} else {
+				this.isShowTop = false
+			}
+			console.log(e)
+		},
+
+		mounted() {
+			console.log('mounted 组件挂载完毕状态===============》');
+			const query = uni.createSelectorQuery().in(this);
+			query.select('.goods_list_box').boundingClientRect(data => {
+				console.log(data);
+				this.listTop = data.top
+			}).exec();
+		},
 		onReachBottom() {
 			this.loadStatus = 'loading';
 			// 模拟数据加载
 			setTimeout(() => {
-				this.addRandomData();
-				this.loadStatus = 'loadmore';
+				this.aa();
+
+				this.a_list = []
 			}, 1000)
 		},
 		methods: {
 			allRequest: function() {
 				this.getMenu()
+				this.addRandomData()
 			},
 			getMenu: function() {
 				let menu_result = []
@@ -412,6 +500,21 @@
 				this.menuList = menu_result
 				console.log(menu_result)
 			},
+			aa: function() {
+				if (this.a_list.length < 1) {
+					this.loadStatus = 'nomore'
+				} else {
+					for (let i = 0; i < 10; i++) {
+						let index = this.$u.random(0, this.a_list.length - 1);
+						// 先转成字符串再转成对象，避免数组对象引用导致数据混乱
+						let item = JSON.parse(JSON.stringify(this.a_list[index]))
+						item.id = this.$u.guid();
+						this.flowList.push(item);
+					}
+					this.loadStatus = 'loadmore';
+				}
+
+			},
 			addRandomData: function() {
 				for (let i = 0; i < 10; i++) {
 					let index = this.$u.random(0, this.list.length - 1);
@@ -433,6 +536,13 @@
 			},
 			stickyActive: function() {
 				// this.tabBgColor = '#fff'
+			},
+			backTop: function() {
+				this.isShowTop = false
+				uni.pageScrollTo({
+					scrollTop: 0,
+					duration: 300
+				});
 			}
 		}
 	}
@@ -528,13 +638,15 @@
 	.text-FC3B00 {
 		color: #FC3B00;
 	}
-	.backTop{
+
+	.backTop {
 		position: fixed;
 		bottom: 140upx;
 		right: 30upx;
 		z-index: 9999;
 	}
-	.backTop image{
+
+	.backTop image {
 		width: 80upx;
 	}
 </style>

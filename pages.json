@@ -19,19 +19,21 @@
 		{
 			"path": "pages/classify/classify",
 			"style": {
-				"navigationBarTitleText": "分类"
-				
+				"navigationBarTitleText": "分类",
+				"navigationStyle": "custom"
 
 			}
 		}, {
 			"path": "pages/cart/cart",
 			"style": {
-				"navigationBarTitleText": "购物车"
+				"navigationBarTitleText": "购物车",
+				"navigationStyle": "custom"
 			}
 		}, {
 			"path": "pages/goods/goods",
 			"style": {
-				"navigationBarTitleText": "全部商品"
+				"navigationBarTitleText": "全部商品",
+				"navigationStyle": "custom"
 			}
 		}
 	],
