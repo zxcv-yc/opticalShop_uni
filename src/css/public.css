@@ -60,7 +60,11 @@ image {
 	flex-direction: column;
 	justify-content: space-between;
 }
-
+.jus-spB-end {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
 .flex_warp {
 	flex-wrap: wrap;
 }
