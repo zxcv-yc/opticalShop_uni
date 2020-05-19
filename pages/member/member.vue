@@ -80,8 +80,8 @@
 		justify-content: space-between;
 	}
 	.backImage .go_back{
-		width: 50upx;
-		height: 90upx;
+		width: 25upx;
+		height: 50upx;
 	}
 	.backImage .go_back_{
 		width: 2upx;
