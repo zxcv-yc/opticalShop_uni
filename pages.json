@@ -13,7 +13,8 @@
 		{
 			"path": "pages/my/my",
 			"style": {
-				"navigationBarTitleText": "我的"
+				"navigationBarTitleText": "我的",
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -41,6 +42,13 @@
             "style" : {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "会员邀请码"
+			}
+        }
+        
+        ,{
+            "path" : "pages/my/userInfo",
+            "style" : {
+				"navigationStyle": "custom"
 			}
         }
     ],
