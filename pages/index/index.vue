@@ -17,7 +17,7 @@
 						搜索
 					</view>
 				</view>
-				<view class="u-m-l-20">
+				<view class="u-m-l-20" @click="showShareModalFun">
 					<image src="../../static/images/fenxiang.png" mode="aspectFit" style="width: 36upx;height: 36upx;"></image>
 				</view>
 			</view>
@@ -85,7 +85,7 @@
 				</view>
 			</view>
 			<view class="jus-spB u-m-t-30 u-m-b-30">
-				<view class="left_box border_radius_10">
+				<view class="left_box border_radius_10" @click="goBrandList">
 					<view class="jus-start u-p-l-40">
 						<image src="../../static/images/copy/hot.png" mode="widthFix" style="width: 30upx;"></image>
 						<view class="u-font-30 u-m-l-20 u-m-b-15">
@@ -132,7 +132,7 @@
 			<view class="" v-if="tabIndex==0">
 				<u-waterfall :flowList="flowList">
 					<template v-slot:left="{leftList}">
-						<view class="demo-warter list_head jus-spB-end" style="background-image: url(../../static/images/copy/list_head.png);">
+						<view class="demo-warter list_head jus-spB-end" style="background-image: url(https://i.loli.net/2020/05/20/Wwa3b5g7SdsuVHx.png);">
 							<view class="list_head_btn jus-center">
 								<view class="text-fff u-font-lg">
 									进入会场
@@ -143,15 +143,11 @@
 							</view>
 						</view>
 						<view class="demo-warter" v-for="(item, index) in leftList" :key="index">
-							<!-- 警告：微信小程序不支持嵌入lazyload组件，请自行如下使用image标签 -->
-							<!-- #ifndef MP-WEIXIN -->
-							<u-lazy-load threshold="-450" border-radius="10" :image="item.image" :index="index"></u-lazy-load>
-							<!-- #endif -->
-							<!-- #ifdef MP-WEIXIN -->
+
 							<view class="demo-img-wrap">
 								<image class="demo-image" :src="item.image" mode="widthFix"></image>
 							</view>
-							<!-- #endif -->
+
 							<view class="demo-title u-font-26 u-m-b-30">
 								{{item.title}}
 							</view>
@@ -169,14 +165,11 @@
 					</template>
 					<template v-slot:right="{rightList}">
 						<view class="demo-warter" v-for="(item, index) in rightList" :key="index">
-							<!-- #ifndef MP-WEIXIN -->
-							<u-lazy-load threshold="-450" border-radius="10" :image="item.image" :index="index"></u-lazy-load>
-							<!-- #endif -->
-							<!-- #ifdef MP-WEIXIN -->
+
 							<view class="demo-img-wrap">
 								<image class="demo-image" :src="item.image" mode="widthFix"></image>
 							</view>
-							<!-- #endif -->
+
 							<view class="demo-title">
 								{{item.title}}
 							</view>
@@ -200,27 +193,54 @@
 				<u-loadmore bg-color="rgb(240, 240, 240)" :status="loadStatus" @loadmore="aa"></u-loadmore>
 			</view>
 		</view>
+		<u-popup v-model="showShareModal" mode="bottom" :safe-area-inset-bottom="true" border-radius="0">
+			<view class="bgc_fff">
+				<view class="img_list_box jus-center u-p-t-40 u-p-b-40">
+					<view class="img_item">
+						<image src="../../static/images/copy_link.png" mode="aspectFill" class="share_img"></image>
+						<view class="u-font-28 text-content u-text-center">
+							复制链接
+						</view>
+					</view>
+					<view class="img_item">
+						<image src="../../static/images/create_banner.png" mode="aspectFill" class="share_img"></image>
+						<view class="u-font-28 text-content u-text-center">
+							生成海报
+						</view>
+					</view>
+					<view class="img_item">
+						<image src="../../static/images/friend.png" mode="aspectFill" class="share_img"></image>
+						<view class="u-font-28 text-content u-text-center">
+							分享给好友
+						</view>
+					</view>
+				</view>
+				<view class="" style="background-color: #F4F4F4; height: 24upx;"></view>
+				<view class="u-p-26 bgc_fff u-text-center" @click="showShareModal = false">取消</view>
+			</view>
+		</u-popup>
 	</view>
 </template>
 
 <script>
 	import uniSwiperDot from "@/components/uni-swiper-dot/uni-swiper-dot.vue"
-
+	import bgImg from "../../static/images/copy/list_head.png"
 	export default {
 		components: {
 			uniSwiperDot,
-
+			bgImg: bgImg
 		},
 		data() {
 			return {
 				title: 'Hello',
 				isShowTop: false,
 				listTop: null,
+				showShareModal: false, //分享弹框
 				swiperList: [{
-						image: '../../static/images/copy/images%20(10).png'
+						image: '../../static/images/copy/dssd.png'
 					},
 					{
-						image: '../../static/images/copy/images%20(12).png'
+						image: '../../static/images/copy/list_head.png'
 					},
 				],
 				menuList: [],
@@ -392,6 +412,7 @@
 		},
 		onLoad() {
 			this.allRequest()
+			console.log(this.bgImg)
 		},
 		onPageScroll(e) {
 			if (e.scrollTop > this.listTop) {
@@ -543,6 +564,14 @@
 					scrollTop: 0,
 					duration: 300
 				});
+			},
+			showShareModalFun: function() {
+				this.showShareModal = true
+			},
+			goBrandList:function(){
+				uni.navigateTo({
+				url:"../goods/brandList"
+				})
 			}
 		}
 	}
@@ -623,6 +652,7 @@
 	.list_head {
 		height: 328upx;
 		background-size: 100% 100%;
+		background-image: url(https://i.loli.net/2020/05/20/Wwa3b5g7SdsuVHx.png);
 	}
 
 	.list_head_btn {
@@ -648,6 +678,16 @@
 
 	.backTop image {
 		width: 80upx;
+	}
+
+	.img_item {
+		width: 30%;
+	}
+
+	.share_img {
+		width: 136upx;
+		height: 136upx;
+		margin: 0 auto;
 	}
 </style>
 <style lang="scss" scoped>

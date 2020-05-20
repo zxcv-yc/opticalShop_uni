@@ -6,7 +6,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uView-index",
+				"navigationBarTitleText": "首页",
 				"navigationStyle": "custom"
 			}
 		},
@@ -36,26 +36,63 @@
 				"navigationBarTitleText": "全部商品",
 				"navigationStyle": "custom"
 			}
-		}
-	    ,{
-            "path" : "pages/member/member",
-            "style" : {
+		}, {
+			"path": "pages/member/member",
+			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "会员邀请码"
 			}
-        }
-        
-        ,{
-            "path" : "pages/my/userInfo",
-            "style" : {
+		}
+
+		, {
+			"path": "pages/my/userInfo",
+			"style": {
 				"navigationStyle": "custom"
 			}
-        }
-    ],
+		}
+
+		, {
+			"path": "pages/my/agent",
+			"style": {
+				"navigationBarTitleText": "代理商"
+			}
+		}, {
+			"path": "pages/my/agentLevel",
+			"style": {
+				"navigationBarTitleText": "代理等级"
+			}
+		}, {
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "代理订单"
+			}
+		}, {
+			"path": "pages/distribution/distributionGoods",
+			"style": {
+				"navigationBarTitleText": "分销产品"
+			}
+		}, {
+			"path": "pages/distribution/distributionRecommend",
+			"style": {
+				"navigationBarTitleText": "分销说明"
+			}
+		}, {
+			"path": "pages/goods/brandList",
+			"style": {
+				"navigationBarTitleText": "所有品牌"
+			}
+		}, {
+			"path": "pages/my/myCollect",
+			"style": {
+				"navigationBarTitleText": "我的关注",
+				"navigationStyle": "custom"
+			}
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uView",
-		"navigationBarBackgroundColor": "#F8F8F8",
+		"navigationBarTitleText": "美瞳",
+		"navigationBarBackgroundColor": "#fff",
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {

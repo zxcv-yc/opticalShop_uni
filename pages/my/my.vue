@@ -8,7 +8,7 @@
 			<view class="jus-start u-p-l-60">
 				<view class="user_img_box">
 					<navigator url="./userInfo" hover-class="none">
-						<image src="../../static/images/copy/list_head.png" mode="aspectFill" style="width: 114upx;height: 114upx;"></image>
+						<image src="../../static/images/copy/list_head.png" mode="aspectFill" style="width: 114upx;height: 114upx;border-radius: 999px;"></image>
 					</navigator>
 				</view>
 				<view class="u-m-l-30">
@@ -57,12 +57,14 @@
 							<view class="u-font-28 text-main text-bold">
 								我的订单
 							</view>
-							<view class="jus-start">
-								<view class="u-p-b-2 u-font-22" style="color: #A9A9A9;">
-									查看全部
+							<navigator url="../order/order">
+								<view class="jus-start">
+									<view class="u-p-b-2 u-font-22" style="color: #A9A9A9;">
+										查看全部
+									</view>
+									<u-icon name="arrow-right" size="22" color="#A9A9A9"></u-icon>
 								</view>
-								<u-icon name="arrow-right" size="22" color="#A9A9A9"></u-icon>
-							</view>
+							</navigator>
 						</view>
 						<view class="jus-spB order_icon_box u-p-b-40 u-p-t-40 ">
 
@@ -100,7 +102,7 @@
 							</view>
 						</view>
 						<view class="jus-start order_icon_box flex_warp u-p-b-40 u-p-t-40" id="serviceBox">
-							<view class="order_icon_item">
+							<view class="order_icon_item" @click="goMycollect">
 								<u-badge size="mini" type="warning" count="0" :absolute="true" :offset="[-20,30]"></u-badge>
 								<image src="../../static/images/my/gerenzhongxin9.png" mode="aspectFill" class="order_icon_img"></image>
 								<view class="u-font-24 text-9F9F9F">
@@ -198,13 +200,13 @@
 									分销邀请码
 								</view>
 							</view>
-							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left ">
+							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left " @click="goDistribution">
 								<image src="../../static/images/my/img3.png" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									分销产品
 								</view>
 							</view>
-							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left ">
+							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left " @click="goDistributionRecommend">
 								<image src="../../static/images/my/img12.png" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									分销说明
@@ -213,14 +215,16 @@
 						</view>
 					</view>
 					<view class="my_center_item bgc_fff border_radius_10 ">
-						<view class="u-p-30 jus-start u-border-bottom">
-							<view class="u-font-28 text-main text-bold">
-								代理中心
+						<navigator url="./agent" hover-class="none">
+							<view class="u-p-30 jus-start u-border-bottom">
+								<view class="u-font-28 text-main text-bold">
+									代理中心
+								</view>
+								<view class="">
+									<u-icon name="arrow-right" size="20" color="#333 "></u-icon>
+								</view>
 							</view>
-							<view class="">
-								<u-icon name="arrow-right" size="20" color="#333 "></u-icon>
-							</view>
-						</view>
+						</navigator>
 						<view class="jus-spB">
 							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 ">
 								<image src="../../static/images/my/img8.png" mode="widthFix" style="width: 36upx;"></image>
@@ -234,7 +238,8 @@
 									代理邀请码
 								</view>
 							</view>
-							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left ">
+
+							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left " @click="goAgentLevel">
 								<image src="../../static/images/my/img13.png" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									等级升级
@@ -344,6 +349,26 @@
 				console.log(5124)
 				this.eye = this.eye == 'eye' ? 'eye-fill' : 'eye'
 				console.log(this.eye)
+			},
+			goAgentLevel: function() {
+				uni.navigateTo({
+					url: "./agentLevel"
+				})
+			},
+			goDistribution: function() {
+				uni.navigateTo({
+					url: '../distribution/distributionGoods'
+				})
+			},
+			goMycollect:function(){
+				uni.navigateTo({
+					url:"./myCollect"
+				})
+			},
+			goDistributionRecommend:function(){
+				uni.navigateTo({
+					url:'../distribution/distributionRecommend'
+				})
 			},
 			// tab栏切换
 			change(index) {
