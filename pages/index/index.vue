@@ -142,8 +142,7 @@
 								</view>
 							</view>
 						</view>
-						<view class="demo-warter" v-for="(item, index) in leftList" :key="index">
-
+						<view class="demo-warter" v-for="(item, index) in leftList" :key="index" @click="goGoodInfo">
 							<view class="demo-img-wrap">
 								<image class="demo-image" :src="item.image" mode="widthFix"></image>
 							</view>
@@ -164,7 +163,7 @@
 						</view>
 					</template>
 					<template v-slot:right="{rightList}">
-						<view class="demo-warter" v-for="(item, index) in rightList" :key="index">
+						<view class="demo-warter" v-for="(item, index) in rightList" :key="index" @click="goGoodInfo">
 
 							<view class="demo-img-wrap">
 								<image class="demo-image" :src="item.image" mode="widthFix"></image>
@@ -568,9 +567,14 @@
 			showShareModalFun: function() {
 				this.showShareModal = true
 			},
-			goBrandList:function(){
+			goBrandList: function() {
 				uni.navigateTo({
-				url:"../goods/brandList"
+					url: "../brand/choicenessBrand"
+				})
+			},
+			goGoodInfo: function() {
+				uni.navigateTo({
+					url: '../goods/goodInfo'
 				})
 			}
 		}

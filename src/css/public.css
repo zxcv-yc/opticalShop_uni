@@ -240,3 +240,14 @@ image {
 	align-items: center;
 	min-width: 138upx;
 }
+
+
+
+.navBar {
+	height: 88upx;
+	padding: 0 30upx;
+}
+
+.text-FF2B22 {
+	color: #FF2B22;
+}

@@ -77,7 +77,7 @@
 				"navigationBarTitleText": "分销说明"
 			}
 		}, {
-			"path": "pages/goods/brandList",
+			"path": "pages/brand/brandList",
 			"style": {
 				"navigationBarTitleText": "所有品牌"
 			}
@@ -87,8 +87,26 @@
 				"navigationBarTitleText": "我的关注",
 				"navigationStyle": "custom"
 			}
+		}, {
+			"path": "pages/brand/brandInfo",
+			"style": {
+				"navigationBarTitleText": "品牌",
+				"navigationStyle": "custom"
+			}
 		}
-	],
+	    ,{
+            "path" : "pages/goods/goodInfo",
+            "style" : {
+				"navigationBarTitleText": "详情"
+			}
+        }
+        ,{
+            "path" : "pages/brand/choicenessBrand",
+            "style" : {
+				"navigationBarTitleText": "精选品牌"
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "美瞳",

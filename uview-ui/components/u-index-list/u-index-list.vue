@@ -1,13 +1,16 @@
 <template>
 	<view class="u-index-bar">
 		<slot />
-		<view v-if="showSidebar" class="u-index-bar__sidebar" @touchstart.stop.prevent="onTouchMove" @touchmove.stop.prevent="onTouchMove"
-		 @touchend.stop.prevent="onTouchStop" @touchcancel.stop.prevent="onTouchStop">
-			<view v-for="(item, index) in indexList" :key="index" class="u-index-bar__index" :style="{zIndex: zIndex + 1, color: activeAnchorIndex === index ? activeColor : ''}"
-			 :data-index="index">
-				{{ item }}
+		<view class="" v-if="showRightBar">
+			<view v-if="showSidebar" class="u-index-bar__sidebar" @touchstart.stop.prevent="onTouchMove" @touchmove.stop.prevent="onTouchMove"
+			 @touchend.stop.prevent="onTouchStop" @touchcancel.stop.prevent="onTouchStop">
+				<view v-for="(item, index) in indexList" :key="index" class="u-index-bar__index" :style="{zIndex: zIndex + 1, color: activeAnchorIndex === index ? activeColor : ''}"
+				 :data-index="index">
+					{{ item }}
+				</view>
 			</view>
 		</view>
+
 		<view class="u-indexed-list-alert" v-if="touchmove && indexList[touchmoveIndex]" :style="{
 			zIndex: alertZIndex
 		}">
@@ -45,6 +48,10 @@
 			sticky: {
 				type: Boolean,
 				default: true
+			},
+			showRightBar: {
+				type: Boolean,
+				default: false
 			},
 			zIndex: {
 				type: [Number, String],
@@ -92,6 +99,7 @@
 				// children: [],
 				touchmove: false,
 				touchmoveIndex: 0,
+				
 			}
 		},
 		watch: {
@@ -106,6 +114,9 @@
 			}
 		},
 		methods: {
+			onLoad() {
+				console.log(1212)
+			},
 			updateData() {
 				this.timer && clearTimeout(this.timer);
 				this.timer = setTimeout(() => {
@@ -115,6 +126,7 @@
 					});
 				}, 0);
 			},
+
 			setRect() {
 				return Promise.all([
 					this.setAnchorsRect(),
