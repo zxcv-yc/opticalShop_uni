@@ -1,0 +1,28 @@
+
+page {
+	background-color: #EDEDED;
+}
+.address_list {
+	padding-bottom: 100rpx;
+}
+.default_tag {
+	padding: 0rpx 10rpx;
+	background-color: #FFE4E4;
+	color: #FA4D4D;
+	margin-right: 4rpx;
+	border-radius: 4rpx;
+	line-height: 30rpx;
+}
+.address_info {
+	width: calc(100% - 80rpx);
+	line-height: 40rpx;
+}
+.bottom_bar {
+	background-color: #667E86;
+	height: 90rpx;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+

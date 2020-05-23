@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的关注",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-tabs": "/uview-ui/components/u-tabs/u-tabs",
+    "u-checkbox-group": "/uview-ui/components/u-checkbox-group/u-checkbox-group",
+    "u-checkbox": "/uview-ui/components/u-checkbox/u-checkbox"
+  }
+}

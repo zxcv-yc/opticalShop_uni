@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "全部商品",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-search": "/uview-ui/components/u-search/u-search",
+    "u-popup": "/uview-ui/components/u-popup/u-popup",
+    "u-tag": "/uview-ui/components/u-tag/u-tag"
+  }
+}

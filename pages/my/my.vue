@@ -1,14 +1,14 @@
 <template>
 	<view class="container">
-		<view class="top_box" style="background-image: url(../../static/images/my/img15.png);">
+		<view class="top_box" :style="'background-image: url('+imgUrl+'images/my/img15.png);'">
 			<view class="jus-end u-p-t-40 u-p-r-30">
 				<u-badge type="error" class="badgeZindex" size="mini" :count="30" :absolute="true" :offset="[25,15]"></u-badge>
-				<image src="../../static/images/my/img16.png" mode="widthFix" style="width: 48upx;"></image>
+				<image :src="imgUrl+'images/my/img16.png'" mode="widthFix" style="width: 48upx;"></image>
 			</view>
 			<view class="jus-start u-p-l-60">
 				<view class="user_img_box">
 					<navigator url="./userInfo" hover-class="none">
-						<image src="../../static/images/copy/list_head.png" mode="aspectFill" style="width: 114upx;height: 114upx;border-radius: 999px;"></image>
+						<image :src="imgUrl+'images/copy/list_head.png'" mode="aspectFill" style="width: 114upx;height: 114upx;border-radius: 999px;"></image>
 					</navigator>
 				</view>
 				<view class="u-m-l-30">
@@ -20,9 +20,9 @@
 					</view>
 				</view>
 			</view>
-			<view class="vip_box jus-spB u-p-l-40 u-p-r-40" style="background-image: url(../../static/images/my/img21.png);">
+			<view class="vip_box jus-spB u-p-l-40 u-p-r-40" :style="'background-image: url('+imgUrl+'images/my/img21.png);'">
 				<view class="jus-start">
-					<image src="../../static/images/my/img2.png" mode="widthFix" style="width: 28upx;"></image>
+					<image :src="imgUrl+'images/my/img2.png'" mode="widthFix" style="width: 28upx;"></image>
 					<view class="u-m-l-15" style="color: #FFDDA4;">
 						VIP特权
 					</view>
@@ -69,25 +69,25 @@
 						<view class="jus-spB order_icon_box u-p-b-40 u-p-t-40 ">
 
 							<view class="order_icon_item">
-								<image src="../../static/images/my/gerenzhongxin6.png" mode="widthFix" class="order_icon_img"></image>
+								<image :src="imgUrl+'images/my/gerenzhongxin6.png'" mode="widthFix" class="order_icon_img"></image>
 								<view class="u-font-25 text-main">
 									待付款
 								</view>
 							</view>
 							<view class="order_icon_item">
-								<image src="../../static/images/my/gerenzhongxin4.png" mode="widthFix" class="order_icon_img"></image>
+								<image :src="imgUrl+'images/my/gerenzhongxin4.png'" mode="widthFix" class="order_icon_img"></image>
 								<view class="u-font-25 text-main">
 									待发货
 								</view>
 							</view>
 							<view class="order_icon_item">
-								<image src="../../static/images/my/gerenzhongxin3.png" mode="widthFix" class="order_icon_img"></image>
+								<image :src="imgUrl+'images/my/gerenzhongxin3.png'" mode="widthFix" class="order_icon_img"></image>
 								<view class="u-font-25 text-main">
 									待收货
 								</view>
 							</view>
 							<view class="order_icon_item">
-								<image src="../../static/images/my/gerenzhongxin8.png" mode="widthFix" class="order_icon_img"></image>
+								<image :src="imgUrl+'images/my/gerenzhongxin8.png'" mode="widthFix" class="order_icon_img"></image>
 								<view class="u-font-25 text-main">
 									退还款
 								</view>
@@ -102,39 +102,39 @@
 							</view>
 						</view>
 						<view class="jus-start order_icon_box flex_warp u-p-b-40 u-p-t-40" id="serviceBox">
-							<view class="order_icon_item" @click="goMycollect">
+							<view class="order_icon_item" @click="goPage('./myCollect')">
 								<u-badge size="mini" type="warning" count="0" :absolute="true" :offset="[-20,30]"></u-badge>
-								<image src="../../static/images/my/gerenzhongxin9.png" mode="aspectFill" class="order_icon_img"></image>
+								<image :src="imgUrl+'images/my/gerenzhongxin9.png'" mode="aspectFill" class="order_icon_img"></image>
 								<view class="u-font-24 text-9F9F9F">
 									我的关注
 								</view>
 							</view>
-							<view class="order_icon_item">
-								<image src="../../static/images/my/gerenzhongxin10.png" mode="aspectFill" class="order_icon_img"></image>
+							<view class="order_icon_item" @click="goPage('./footprint')"> 
+								<image :src="imgUrl+'images/my/gerenzhongxin10.png'" mode="aspectFill" class="order_icon_img"></image>
 								<view class="u-font-24 text-9F9F9F">
 									我的足迹
 								</view>
 							</view>
-							<view class="order_icon_item">
-								<image src="../../static/images/my/gerenzhongxin1.png" mode="aspectFill" class="order_icon_img"></image>
+							<view class="order_icon_item" @click="goPage('../finance/financeCenter')">
+								<image :src="imgUrl+'images/my/gerenzhongxin1.png'" mode="aspectFill" class="order_icon_img"></image>
 								<view class="u-font-24 text-9F9F9F">
 									财务中心
 								</view>
 							</view>
 							<view class="order_icon_item">
-								<image src="../../static/images/my/gerenzhongxin5.png" mode="aspectFill" class="order_icon_img"></image>
+								<image :src="imgUrl+'images/my/gerenzhongxin5.png'" mode="aspectFill" class="order_icon_img"></image>
 								<view class="u-font-24 text-9F9F9F">
 									客户服务
 								</view>
 							</view>
 							<view class="order_icon_item u-m-t-40">
-								<image src="../../static/images/my/gerenzhongxin2.png" mode="aspectFill" class="order_icon_img"></image>
+								<image :src="imgUrl+'images/my/gerenzhongxin2.png'" mode="aspectFill" class="order_icon_img"></image>
 								<view class="u-font-24 text-9F9F9F">
 									我的客户经理
 								</view>
 							</view>
-							<view class="order_icon_item u-m-t-40">
-								<image src="../../static/images/my/gerenzhongxin7.png" mode="aspectFill" class="order_icon_img"></image>
+							<view class="order_icon_item u-m-t-40" @click="goPage('./setting')">
+								<image :src="imgUrl+'images/my/gerenzhongxin7.png'" mode="aspectFill" class="order_icon_img"></image>
 								<view class="u-font-24 text-9F9F9F">
 									设置
 								</view>
@@ -151,7 +151,7 @@
 							<u-icon :name="eye" size="30" color="#999"></u-icon>
 						</view>
 						<view class="my_center_item_item jus-center u-p-30">
-							<image src="../../static/images/my/img11.png" mode="widthFix" style="width: 53upx;"></image>
+							<image :src="imgUrl+'images/my/img11.png'" mode="widthFix" style="width: 53upx;"></image>
 							<view class="text-FF4D4D u-m-l-15">
 								<view class="u-font-28">
 									+160
@@ -162,7 +162,7 @@
 							</view>
 						</view>
 						<view class="my_center_item_item jus-center u-p-30 u-border-left ">
-							<image src="../../static/images/my/img17.png" mode="widthFix" style="width: 53upx;"></image>
+							<image :src="imgUrl+'images/my/img17.png'" mode="widthFix" style="width: 53upx;"></image>
 							<view class="text-FF4D4D u-m-l-15">
 								<view class="u-font-28">
 									+5000
@@ -173,7 +173,7 @@
 							</view>
 						</view>
 						<view class="my_center_item_item jus-center u-p-30 u-border-left">
-							<image src="../../static/images/my/img5.png" mode="widthFix" style="width: 53upx;"></image>
+							<image :src="imgUrl+'images/my/img5.png'" mode="widthFix" style="width: 53upx;"></image>
 							<view class="text-FF4D4D u-m-l-15">
 								<view class="u-font-28">
 									+690
@@ -195,19 +195,19 @@
 						</view>
 						<view class="jus-spB">
 							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 ">
-								<image src="../../static/images/my/img9.png" mode="widthFix" style="width: 36upx;"></image>
+								<image :src="imgUrl+'images/my/img9.png'" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									分销邀请码
 								</view>
 							</view>
-							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left " @click="goDistribution">
-								<image src="../../static/images/my/img3.png" mode="widthFix" style="width: 36upx;"></image>
+							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left " @click="goPage('../distribution/distributionGoods')">
+								<image :src="imgUrl+'images/my/img3.png'" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									分销产品
 								</view>
 							</view>
-							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left " @click="goDistributionRecommend">
-								<image src="../../static/images/my/img12.png" mode="widthFix" style="width: 36upx;"></image>
+							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left " @click="goPage('../distribution/distributionRecommend')">
+								<image :src="imgUrl+'images/my/img12.png'" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									分销说明
 								</view>
@@ -226,21 +226,21 @@
 							</view>
 						</navigator>
 						<view class="jus-spB">
-							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 ">
-								<image src="../../static/images/my/img8.png" mode="widthFix" style="width: 36upx;"></image>
+							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 " @click="goPage('../member/memberInvitationCode')">
+								<image :src="imgUrl+'images/my/img8.png'" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									会员邀请码
 								</view>
 							</view>
 							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left ">
-								<image src="../../static/images/my/img6.png" mode="widthFix" style="width: 36upx;"></image>
+								<image :src="imgUrl+'images/my/img6.png'" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									代理邀请码
 								</view>
 							</view>
 
-							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left " @click="goAgentLevel">
-								<image src="../../static/images/my/img13.png" mode="widthFix" style="width: 36upx;"></image>
+							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left " @click="goPage('./agentLevel')">
+								<image :src="imgUrl+'images/my/img13.png'" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									等级升级
 								</view>
@@ -258,13 +258,13 @@
 						</view>
 						<view class="jus-start">
 							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 ">
-								<image src="../../static/images/my/img7.png" mode="widthFix" style="width: 36upx;"></image>
+								<image :src="imgUrl+'images/my/img7.png'" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									店铺邀请码
 								</view>
 							</view>
-							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left ">
-								<image src="../../static/images/my/img4.png" mode="widthFix" style="width: 36upx;"></image>
+							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 u-border-left " @click="goPage('../shop/shopSetting')">
+								<image :src="imgUrl+'images/my/img4.png'" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									店铺设置
 								</view>
@@ -350,26 +350,14 @@
 				this.eye = this.eye == 'eye' ? 'eye-fill' : 'eye'
 				console.log(this.eye)
 			},
-			goAgentLevel: function() {
+			goPage:function(e){
 				uni.navigateTo({
-					url: "./agentLevel"
+					url: e
 				})
 			},
-			goDistribution: function() {
-				uni.navigateTo({
-					url: '../distribution/distributionGoods'
-				})
-			},
-			goMycollect:function(){
-				uni.navigateTo({
-					url:"./myCollect"
-				})
-			},
-			goDistributionRecommend:function(){
-				uni.navigateTo({
-					url:'../distribution/distributionRecommend'
-				})
-			},
+	
+	
+		
 			// tab栏切换
 			change(index) {
 				this.swiperCurrent = index;

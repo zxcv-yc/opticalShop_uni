@@ -1,0 +1,154 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.zzx-calendar.data-v-3842766a {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding-bottom: 30rpx;
+}
+.zzx-calendar .calendar-heander.data-v-3842766a {
+    text-align: center;
+    height: 60rpx;
+    line-height: 60rpx;
+    position: relative;
+    font-size: 30rpx;
+}
+.zzx-calendar .calendar-heander .back-today.data-v-3842766a {
+      position: absolute;
+      right: 0;
+      width: 100rpx;
+      height: 30rpx;
+      line-height: 30rpx;
+      font-size: 20rpx;
+      top: 15rpx;
+      border-radius: 15rpx 0 0 15rpx;
+      color: #ffffff;
+      background-color: #FF6633;
+}
+.zzx-calendar .calendar-weeks.data-v-3842766a {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin-bottom: 20rpx;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    font-size: 30rpx;
+}
+.zzx-calendar .calendar-weeks .calendar-week.data-v-3842766a {
+      width: calc(100% / 7);
+      height: 100%;
+      text-align: center;
+      color: #C9C9C9;
+}
+.zzx-calendar swiper.data-v-3842766a {
+    width: 100%;
+    height: 60rpx;
+}
+.zzx-calendar .calendar-content.data-v-3842766a {
+    min-height: 60rpx;
+}
+.zzx-calendar .calendar-swiper.data-v-3842766a {
+    min-height: 70rpx;
+    -webkit-transition: height ease-out 0.3s;
+    transition: height ease-out 0.3s;
+}
+.zzx-calendar .calendar-item.data-v-3842766a {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.zzx-calendar .calendar-days.data-v-3842766a {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 28rpx;
+}
+.zzx-calendar .calendar-days .calendar-day.data-v-3842766a {
+      width: calc(100% / 7);
+      height: 80rpx;
+      text-align: center;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-flow: column nowrap;
+              flex-flow: column nowrap;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+              justify-content: flex-start;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+}
+.zzx-calendar .day-hidden.data-v-3842766a {
+    visibility: hidden;
+}
+.zzx-calendar .mode-change.data-v-3842766a {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    margin-top: 10rpx;
+}
+.zzx-calendar .mode-change .mode-arrow-top.data-v-3842766a {
+      width: 0;
+      height: 0;
+      border-left: 12rpx solid transparent;
+      border-right: 12rpx solid transparent;
+      border-bottom: 10rpx solid #FF6633;
+}
+.zzx-calendar .mode-change .mode-arrow-bottom.data-v-3842766a {
+      width: 0;
+      height: 0;
+      border-left: 12rpx solid transparent;
+      border-right: 12rpx solid transparent;
+      border-top: 10rpx solid #FF6633;
+}
+.zzx-calendar .is-today.data-v-3842766a {
+    background: #FE98AE;
+    border-radius: 50%;
+    color: #FFF;
+}
+.zzx-calendar .is-checked.data-v-3842766a {
+    background: #FF6633;
+    color: #ffffff;
+}
+.zzx-calendar .date.data-v-3842766a {
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    margin: 0 auto;
+    border-radius: 50rpx;
+}
+.zzx-calendar .dot-show.data-v-3842766a {
+    margin-top: 4rpx;
+    width: 10rpx;
+    height: 10rpx;
+    background: #c6c6c6;
+    border-radius: 10rpx;
+}
+

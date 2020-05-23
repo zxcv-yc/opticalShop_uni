@@ -16,14 +16,14 @@
 						<u-checkbox @change="checkboxChange" v-model="item.checked" :name="item.id" shape="circle" icon-size="20"></u-checkbox>
 					</view>
 					<view class="jus-spB">
-						<image src="../../static/images/copy/dssd.png" mode="aspectFill" style="width: 188upx;height: 152upx;" class="border_radius_10"></image>
+						<image :src="imgUrl+'images/copy/dssd.png'" mode="aspectFill" style="width: 188upx;height: 152upx;" class="border_radius_10"></image>
 						<view class="cart_item_info jus-spB-col">
 							<view class="jus-spB">
 								<view class="u-font-26 text-main u-line-2 cart_item_title">
 									新款美瞳眼睛伴侣套装礼盒 影形彩色隐形眼镜
 								</view>
 								<view class="" @click.stop="showDeleteGoodsModal()">
-									<image src="../../static/images/delete.png" mode="widthFix" style="width: 26upx;"></image>
+									<image :src="imgUrl+'images/delete.png'" mode="widthFix" style="width: 26upx;"></image>
 								</view>
 							</view>
 							<view class="u-font-22 text-tips">
@@ -49,7 +49,7 @@
 		<view class="goods_list jus-spB u-p-t-30 u-p-l-36  u-p-r-36 flex_warp">
 			<view class="goods_item bgc_fff border_radius_10 ">
 				<view class="">
-					<image src="../../static/images/copy/dssd.png" mode="aspectFill" style="width: 328upx;height: 260upx;"></image>
+					<image :src="imgUrl+'images/copy/dssd.png'" mode="aspectFill" style="width: 328upx;height: 260upx;"></image>
 				</view>
 				<view class="u-p-30">
 					<view class="u-font-26 text-main u-line-2 u-m-b-30">
@@ -63,7 +63,7 @@
 			</view>
 			<view class="goods_item bgc_fff border_radius_10 ">
 				<view class="">
-					<image src="../../static/images/copy/dssd.png" mode="aspectFill" style="width: 328upx;height: 260upx;"></image>
+					<image :src="imgUrl+'images/copy/dssd.png'" mode="aspectFill" style="width: 328upx;height: 260upx;"></image>
 				</view>
 				<view class="u-p-30">
 					<view class="u-font-26 text-main u-line-2 u-m-b-30">
@@ -77,7 +77,7 @@
 			</view>
 			<view class="goods_item bgc_fff border_radius_10 ">
 				<view class="">
-					<image src="../../static/images/copy/dssd.png" mode="aspectFill" style="width: 328upx;height: 260upx;"></image>
+					<image :src="imgUrl+'images/copy/dssd.png'" mode="aspectFill" style="width: 328upx;height: 260upx;"></image>
 				</view>
 				<view class="u-p-30">
 					<view class="u-font-26 text-main u-line-2 u-m-b-30">
@@ -91,7 +91,7 @@
 			</view>
 			<view class="goods_item bgc_fff border_radius_10 ">
 				<view class="">
-					<image src="../../static/images/copy/dssd.png" mode="aspectFill" style="width: 328upx;height: 260upx;"></image>
+					<image :src="imgUrl+'images/copy/dssd.png'" mode="aspectFill" style="width: 328upx;height: 260upx;"></image>
 				</view>
 				<view class="u-p-30">
 					<view class="u-font-26 text-main u-line-2 u-m-b-30">
@@ -141,19 +141,19 @@
 					"关于 xxxx产品完税订单更改地址更新说明 通知",
 					"关于 xxxx产品完税订单更改地址更新说明 通知"
 				],
-				checkImgUrl: '../../static/images/check.png',
+				checkImgUrl: http.imgUrl+'images/check.png',
 				cartList: [{
-						img: '../../static/images/copy/dssd.png',
+						img: http.imgUrl+'images/copy/dssd.png',
 						id: '11',
 						checked: false,
 					},
 					{
-						img: '../../static/images/copy/dssd.png',
+						img:http.imgUrl+'images/copy/dssd.png',
 						id: '12',
 						checked: false,
 					},
 					{
-						img: '../../static/images/copy/dssd.png',
+						img:http.imgUrl+'images/copy/dssd.png',
 						id: '13',
 						checked: false,
 					}
@@ -220,7 +220,7 @@
 			},
 			allChecked: function() {
 				console.log('点击')
-				this.checkImgUrl = '../../static/images/check_a.png'
+				this.checkImgUrl = this.imgUrl+'images/check_a.png'
 			},
 		}
 	}
@@ -256,7 +256,7 @@
 		padding: 20upx;
 		width: 100%;
 		position: fixed;
-		bottom: 100upx;
+		bottom:50px;
 	}
 
 	.settlement_btn {

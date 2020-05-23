@@ -1,7 +1,11 @@
 <script>
+	import util from './common/util.js'
+	
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
+			console.log(util)
+			util.wxAuthorize();
 		},
 		onShow: function() {
 			console.log('App Show')
@@ -21,7 +25,7 @@
 	@import "src/css/public.css";
 	/* @import "src/css/iconfont.css"; */
 
-/* 	page {
+	/* 	page {
 		background-color: #f5efef;
 	}
 

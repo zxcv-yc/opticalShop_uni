@@ -1,8 +1,8 @@
 <template>
 	<view class="container">
-		<view class="top_box u-m-t-30 u-p-l-30 u-p-r-30 u-p-t-30 padding_bottom_180" style="background-image: url(../../static/images/brand_img5.png);">
-			<view class="jus-spB "@click="goBrandList">
-				<view class="u-font-40 text-main text-bold" >
+		<view class="top_box u-m-t-30 u-p-l-30 u-p-r-30 u-p-t-30 padding_bottom_180" :style="'background-image: url('+imgUrl+'images/brand_img5.png);'">
+			<view class="jus-spB" @click="goBrandList">
+				<view class="u-font-40 text-main text-bold">
 					全部品牌
 				</view>
 				<view class="">
@@ -12,8 +12,8 @@
 			<view class="u-text-center text-fff u-font-28 text-bold u-p-t-20 u-m-b-40">
 				海昌美瞳
 			</view>
-			<image src="../../static/images/brand_img1.png" mode="aspectFill" style="width: 100%; height: 406upx;"></image>
-			<image src="../../static/images/brand2.png" mode="aspectFill" style="width: 100%;height: 300upx;"></image>
+			<image :src="imgUrl+'images/brand_img1.png'" mode="aspectFill" style="width: 100%; height: 406upx;"></image>
+			<image :src="imgUrl+'images/brand2.png'" mode="aspectFill" style="width: 100%;height: 300upx;"></image>
 		</view>
 		<view class="u-font-40 text-main text-bold u-p-t-30 u-p-l-30">
 			精选品牌
@@ -21,7 +21,7 @@
 		<view class="brand_item" v-for="(item,index) in swiperList1" :key="index">
 			<view class="jus-spB u-p-l-50 u-p-r-30 pos_r">
 				<view class="jus-start">
-					<image src="../../static/images/brand3.png" mode="aspectFill" style="width: 176upx;height: 136upx;"></image>
+					<image :src="imgUrl+'images/brand3.png'" mode="aspectFill" style="width: 176upx;height: 136upx;"></image>
 					<view class="u-font-28">
 						日韩高端美瞳品牌
 					</view>
@@ -39,7 +39,7 @@
 				<view class="" style="padding: 30upx;overflow: hidden;">
 					<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" scroll-left="100%" @scrolltolower="scrolltolower">
 						<view class="scroll_good_item u-text-center u-m-l-24 " v-for="(item,index) in list" :key="index" :style="index==0?'margin-left:0':''">
-							<image src="../../static/images/brand5.png" mode="aspectFill" style="width: 165upx; height: 165upx;margin: 0 auto;"></image>
+							<image :src="imgUrl+'images/brand5.png'" mode="aspectFill" style="width: 165upx; height: 165upx;margin: 0 auto;"></image>
 							<view class="u-line-1 u-font-26 u-m-t-20">
 								日本美瞳日抛日本美瞳日抛
 							</view>
@@ -66,11 +66,11 @@
 				imgUrl: http.imgUrl,
 				list: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 				swiperList1: [{
-					image: '../../static/images/brand_img3.png'
+					image: http.imgUrl + 'images/brand_img3.png'
 				}, {
-					image: '../../static/images/brand_img3.png'
+					image: http.imgUrl + 'images/brand_img3.png'
 				}, {
-					image: '../../static/images/brand_img3.png'
+					image: http.imgUrl + 'images/brand_img3.png'
 				}]
 			}
 		},
@@ -132,9 +132,9 @@
 			scrolltoupper() {
 				console.log(2222);
 			},
-			goBrandList:function(){
+			goBrandList: function() {
 				uni.navigateTo({
-					url:'./brandList'
+					url: './brandList'
 				})
 			}
 		}

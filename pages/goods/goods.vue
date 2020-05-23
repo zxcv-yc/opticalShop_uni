@@ -20,7 +20,7 @@
 				价格
 			</view>
 			<view class="screen_bar_item" :class="screenIndex==5?'screen_bar_item_a':''" @click="screenToggle(5)">
-				<image src="../../static/images/list.png" mode="widthFix" style="width: 30upx;"></image>
+				<image :src="imgUrl+'images/list.png'" mode="widthFix" style="width: 30upx;"></image>
 			</view>
 			<u-popup v-model="screenModalShow" mode="right" close-icon-pos="bottom-right" :closeable="true">
 				<view class="screen_modal">筛选条件</view>
@@ -28,7 +28,7 @@
 		</view>
 		<view class="goods_list">
 			<view class="goods_item jus-spB u-border-bottom">
-				<image src="../../static/images/copy/cdjh.png" mode="aspectFill"></image>
+				<image :src="imgUrl+'images/copy/cdjh.png'" mode="aspectFill"></image>
 				<view class="goods_item_info jus-spB-col">
 					<view class="u-font-28 u-line-2">
 						日本美瞳日抛Flanmy隐形眼镜近视桥本环奈自然大直径
@@ -45,13 +45,13 @@
 							<text class="u-font-34">19.90</text>
 						</view>
 						<view class="u-m-r-30">
-							<image src="../../static/images/cart.png" mode="widthFix" style="width: 50upx;"></image>
+							<image :src="imgUrl+'images/cart.png'" mode="widthFix" style="width: 50upx;"></image>
 						</view>
 					</view>
 				</view>
 			</view>
 			<view class="goods_item jus-spB u-border-bottom">
-				<image src="../../static/images/copy/cdjh.png" mode="aspectFill"></image>
+				<image :src="imgUrl+'images/copy/cdjh.png'" mode="aspectFill"></image>
 				<view class="goods_item_info jus-spB-col">
 					<view class="u-font-28 u-line-2">
 						日本美瞳日抛Flanmy隐形眼镜近视桥本环奈自然大直径
@@ -68,7 +68,7 @@
 							<text class="u-font-34">19.90</text>
 						</view>
 						<view class="u-m-r-30">
-							<image src="../../static/images/cart.png" mode="widthFix" style="width: 50upx;"></image>
+							<image :src="imgUrl+'images/cart.png'" mode="widthFix" style="width: 50upx;"></image>
 						</view>
 					</view>
 				</view>

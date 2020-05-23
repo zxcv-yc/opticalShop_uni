@@ -1,0 +1,116 @@
+
+.pos_ab {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 201;
+}
+
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.banner-container.data-v-776abb72 {
+  width: 100vw;
+  height: 420rpx;
+}
+.banner-container .image-container.data-v-776abb72 {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+.banner-container .image-container .slide-image.data-v-776abb72 {
+      width: 550rpx;
+      height: 328rpx;
+      z-index: 200;
+}
+.banner-container .item-left.data-v-776abb72 {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+    padding: 56rpx 26rpx 0 0;
+}
+.banner-container .item-right.data-v-776abb72 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+            justify-content: flex-start;
+    padding: 56rpx 0 0 26rpx;
+}
+.banner-container .item-center.data-v-776abb72 {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    padding: 56rpx 0 0 0;
+}
+.banner-container .desc-wrap.data-v-776abb72 {
+    box-sizing: border-box;
+    width: 100%;
+    height: 98rpx;
+    padding: 24rpx 66rpx 0;
+}
+.banner-container .desc-wrap .title.data-v-776abb72 {
+      width: 100%;
+      height: 42rpx;
+      line-height: 42rpx;
+      color: #222222;
+      font-size: 30rpx;
+      font-family: 'PingFangTC-Regular';
+      font-weight: 600;
+      text-align: left;
+}
+.banner-container .desc-wrap .desc.data-v-776abb72 {
+      margin-top: 4rpx;
+      width: 100%;
+      height: 34rpx;
+      line-height: 34rpx;
+      color: #999999;
+      font-size: 24rpx;
+      font-family: 'PingFangTC-Regular';
+      text-align: left;
+}
+@keyframes descAnimation-data-v-776abb72 {
+0% {
+    opacity: 1;
+}
+25% {
+    opacity: .5;
+}
+50% {
+    opacity: 0;
+}
+75% {
+    opacity: .5;
+}
+100% {
+    opacity: 1;
+}
+}
+@-webkit-keyframes descAnimation-data-v-776abb72 {
+0% {
+    opacity: 1;
+}
+25% {
+    opacity: .5;
+}
+50% {
+    opacity: 0;
+}
+75% {
+    opacity: .5;
+}
+100% {
+    opacity: 1;
+}
+}
+.banner-container .hideAndShowDesc.data-v-776abb72 {
+    animation: descAnimation-data-v-776abb72 .3s ease 1;
+    -webkit-animation: descAnimation-data-v-776abb72 .3s ease 1;
+}
+

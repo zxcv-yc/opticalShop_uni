@@ -27,7 +27,7 @@
 						<u-checkbox @change="checkboxChange" v-model="item.checked" :name="item.id" shape="circle" icon-size="20" v-if="edit"></u-checkbox>
 					</view>
 					<view class="">
-						<image src="../../static/images/copy/dssd.png" mode="aspectFill" style="width: 180upx;height: 180upx;"></image>
+						<image :src="imgUrl+'images/copy/dssd.png'" mode="aspectFill" style="width: 180upx;height: 180upx;"></image>
 					</view>
 					<view class="goods_item_info jus-spB-col" :class="edit?'width_edit':'width_noedit'">
 						<view class="text-main u-font-26 u-line-2">
@@ -41,7 +41,7 @@
 								<text class="u-font-24">¥ </text><text class="u-font-32">16.00</text>
 							</view>
 							<view class="">
-								<image src="../../static/images/cart.png" mode="aspectFill" style="width: 50upx;height: 50upx;"></image>
+								<image :src="imgUrl+'images/cart.png'" mode="aspectFill" style="width: 50upx;height: 50upx;"></image>
 							</view>
 						</view>
 					</view>

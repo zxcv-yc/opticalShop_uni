@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "精选品牌",
+  "usingComponents": {
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "u-toast": "/uview-ui/components/u-toast/u-toast"
+  }
+}

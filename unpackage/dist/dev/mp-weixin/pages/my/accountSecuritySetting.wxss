@@ -1,0 +1,9 @@
+
+page {
+	background-color: #EDEDED;
+}
+.top_img_box {
+	border: 2rpx solid #979797;
+	box-sizing: content-box;
+}
+

@@ -1,0 +1,14 @@
+
+.share_btn {
+	background-color: #FB484F;
+	line-height: 50rpx;
+	width: 144rpx;
+}
+.goods_item_info{
+	width: calc(100% - 210rpx);
+	height: 180rpx;
+}
+.goods_list{
+	padding-top: 0 !important;
+}
+

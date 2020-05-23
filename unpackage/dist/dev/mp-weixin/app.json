@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/classify/classify",
+    "pages/cart/cart",
+    "pages/goods/goods",
+    "pages/my/userInfo",
+    "pages/my/agent",
+    "pages/my/agentLevel",
+    "pages/order/order",
+    "pages/distribution/distributionGoods",
+    "pages/distribution/distributionRecommend",
+    "pages/brand/brandList",
+    "pages/my/myCollect",
+    "pages/brand/brandInfo",
+    "pages/goods/goodInfo",
+    "pages/brand/choicenessBrand",
+    "pages/finance/financeCenter",
+    "pages/shop/shopSetting",
+    "pages/my/setting",
+    "pages/my/addressList",
+    "pages/my/editAddress",
+    "pages/member/memberInvitationCode",
+    "pages/goods/flashSale",
+    "pages/shop/thresholdSetting",
+    "pages/my/accountSecuritySetting",
+    "pages/my/emailAuthentication",
+    "pages/my/footprint"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "美瞳",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#5E6060",
+    "selectedColor": "#FE464A",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabBar/shouye.png",
+        "selectedIconPath": "static/tabBar/shouye-a.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "iconPath": "static/tabBar/fenlei.png",
+        "selectedIconPath": "static/tabBar/fenlei-a.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/goods/goods",
+        "iconPath": "static/tabBar/shangpin.png",
+        "selectedIconPath": "static/tabBar/shangpin-a.png",
+        "text": "全部商品"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "static/tabBar/gouwuche.png",
+        "selectedIconPath": "static/tabBar/gouwuche-a.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "static/tabBar/wode.png",
+        "selectedIconPath": "static/tabBar/wode-a.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {},
+  "usingComponents": {}
+}

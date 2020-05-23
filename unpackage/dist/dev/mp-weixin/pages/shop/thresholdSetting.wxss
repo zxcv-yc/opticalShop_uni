@@ -1,0 +1,24 @@
+
+page {
+	background-color: #EDEDED;
+}
+.text-667E86 {
+	color: #667E86;
+}
+.width_180 {
+	width: 180rpx;
+}
+.height_132 {
+	height: 132rpx;
+}
+.width_154 {
+	width: 144rpx;
+}
+.input-placeholder {
+	color: #666764;
+	font-size: 26rpx;
+	margin: 0;
+	padding: 0;
+	line-height: 100%;
+}
+

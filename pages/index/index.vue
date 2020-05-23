@@ -1,24 +1,22 @@
 <template>
 	<view class="container">
-		<view class="backTop" @click="backTop" v-if="isShowTop">
-			<image src="../../static/images/zhiding.png" mode="widthFix"></image>
-		</view>
+
 		<view class="jus-spB u-p-30">
 			<view class="jus-start">
-				<image src="../../static/tabBar/shouye-a.png" mode="widthFix" style="width: 40upx;"></image>
+				<image :src="imgUrl+'tabBar/shouye-a.png'" mode="widthFix" style="width: 40upx;height: auto;"></image>
 				<view class="text-content u-font-sm u-m-l-20">
 					花花美瞳店铺
 				</view>
 			</view>
 			<view class="jus-start">
 				<view class="jus-center border_radius_999 search_box">
-					<image src="../../static/images/search_icon.png" mode="widthFix" style="width: 24upx;"></image>
+					<image :src="imgUrl+'images/search_icon.png'" mode="widthFix" style="width: 24upx;"></image>
 					<view class="u-font-sm text-content u-m-l-20">
 						搜索
 					</view>
 				</view>
 				<view class="u-m-l-20" @click="showShareModalFun">
-					<image src="../../static/images/fenxiang.png" mode="aspectFit" style="width: 36upx;height: 36upx;"></image>
+					<image :src="imgUrl+'images/fenxiang.png'" mode="aspectFit" style="width: 36upx;height: 36upx;"></image>
 				</view>
 			</view>
 		</view>
@@ -27,7 +25,7 @@
 		</view>
 		<view class="jus-center u-p-30">
 			<view class="jus-start">
-				<image src="../../static/images/copy/rengong.png" mode="widthFix" style="width: 28upx;"></image>
+				<image :src="imgUrl+'images/copy/rengong.png'" mode="widthFix" style="width: 28upx;height: auto;"></image>
 				<view class="u-font-24 u-m-l-20">
 					人工优选
 				</view>
@@ -36,7 +34,7 @@
 				/
 			</view>
 			<view class="jus-start">
-				<image src="../../static/images/copy/pinzhi.png" mode="widthFix" style="width: 28upx;"></image>
+				<image :src="imgUrl+'images/copy/pinzhi.png'" mode="widthFix" style="width: 28upx;height: auto;"></image>
 				<view class="u-font-24 u-m-l-20">
 					人工优选
 				</view>
@@ -45,7 +43,7 @@
 				/
 			</view>
 			<view class="jus-start">
-				<image src="../../static/images/copy/shouhou.png" mode="widthFix" style="width: 28upx;"></image>
+				<image :src="imgUrl+'images/copy/shouhou.png'" mode="widthFix" style="width: 28upx;height: auto;"></image>
 				<view class="u-font-24 u-m-l-20">
 					售后无忧
 				</view>
@@ -62,7 +60,7 @@
 						<view class="swiper-item jus-start flex_warp">
 							<view class="menu_item" v-for="(item1,index1) in item" :key="index1">
 								<view class="menu_item_img">
-									<image :src="item1.img" mode="widthFix"></image>
+									<image :src="item1.img" mode="aspectFit" style="width: 110upx;height: 110upx;"></image>
 								</view>
 								<view class="u-font-20 text-content u-text-center">
 									{{item1.name}}
@@ -74,11 +72,11 @@
 			</uni-swiper-dot>
 		</view>
 		<view class="u-p-30">
-			<image src="../../static/images/copy/banner.png" mode="widthFix" style="width: 100%;"></image>
+			<image :src="imgUrl+'images/copy/banner.png'" mode="widthFix" style="width: 100%;"></image>
 		</view>
 		<view class="u-p-l-30 u-p-r-30">
 			<view class="jus-start u-p-30 news_box border_radius_10">
-				<image src="../../static/images/copy/zaobao.png" mode="widthFix" style="width: 130upx;"></image>
+				<image :src="imgUrl+'images/copy/zaobao.png'" mode="widthFix" style="width: 130upx;"></image>
 				<view class="u-m-l-20 u-m-r-20" style="color: #DDDDDD;">|</view>
 				<view class="text-main u-font-26">
 					商城最新新品上新,各种特色美瞳上线
@@ -87,7 +85,7 @@
 			<view class="jus-spB u-m-t-30 u-m-b-30">
 				<view class="left_box border_radius_10" @click="goBrandList">
 					<view class="jus-start u-p-l-40">
-						<image src="../../static/images/copy/hot.png" mode="widthFix" style="width: 30upx;"></image>
+						<image :src="imgUrl+'images/copy/hot.png'" mode="widthFix" style="width: 30upx;"></image>
 						<view class="u-font-30 u-m-l-20 u-m-b-15">
 							精选品牌
 						</view>
@@ -95,10 +93,10 @@
 					<view class="text-tips u-font-22 u-p-l-40 u-p-b-40">
 						必买订单，今日优选
 					</view>
-					<image src="../../static/images/copy/asdf.png" mode="aspectFill" style="width: 270upx;height: 168upx; margin: 0 auto;"></image>
+					<image :src="imgUrl+'images/copy/asdf.png'" mode="aspectFill" style="width: 270upx;height: 168upx; margin: 0 auto;"></image>
 				</view>
 				<view class="right_box jus-spB-col">
-					<view class="right_top_box border_radius_10 jus-spB">
+					<view class="right_top_box border_radius_10 jus-spB" @click="goFlashSale">
 						<view class="u-text-left">
 							<view class="u-font-30 u-m-l-30 u-m-b-15">
 								限时抢购
@@ -107,7 +105,7 @@
 								今日优选
 							</view>
 						</view>
-						<image src="../../static/images/copy/qwer.png" mode="aspectFill" style="height: 124upx;width: 124upx;" class="u-m-r-30 u-m-t-30"></image>
+						<image :src="imgUrl+'images/copy/qwer.png'" mode="aspectFill" style="height: 124upx;width: 124upx;" class="u-m-r-30 u-m-t-30"></image>
 					</view>
 					<view class="right_bottom_box border_radius_10 jus-spB">
 						<view class="u-text-left">
@@ -118,7 +116,7 @@
 								今日优选
 							</view>
 						</view>
-						<image src="../../static/images/copy/zxc.png" mode="aspectFill" style="height: 124upx;width: 124upx;" class="u-m-r-30 u-m-t-30"></image>
+						<image :src="imgUrl+'images/copy/zxc.png'" mode="aspectFill" style="height: 124upx;width: 124upx;" class="u-m-r-30 u-m-t-30"></image>
 					</view>
 				</view>
 			</view>
@@ -132,7 +130,7 @@
 			<view class="" v-if="tabIndex==0">
 				<u-waterfall :flowList="flowList">
 					<template v-slot:left="{leftList}">
-						<view class="demo-warter list_head jus-spB-end" style="background-image: url(https://i.loli.net/2020/05/20/Wwa3b5g7SdsuVHx.png);">
+						<view class="demo-warter list_head jus-spB-end" :style="'background-image: url('+imgUrl+'images/copy/list_head.png);'">
 							<view class="list_head_btn jus-center">
 								<view class="text-fff u-font-lg">
 									进入会场
@@ -196,19 +194,19 @@
 			<view class="bgc_fff">
 				<view class="img_list_box jus-center u-p-t-40 u-p-b-40">
 					<view class="img_item">
-						<image src="../../static/images/copy_link.png" mode="aspectFill" class="share_img"></image>
+						<image :src="imgUrl+'images/copy_link.png'" mode="aspectFill" class="share_img"></image>
 						<view class="u-font-28 text-content u-text-center">
 							复制链接
 						</view>
 					</view>
 					<view class="img_item">
-						<image src="../../static/images/create_banner.png" mode="aspectFill" class="share_img"></image>
+						<image :src="imgUrl+'images/create_banner.png'" mode="aspectFill" class="share_img"></image>
 						<view class="u-font-28 text-content u-text-center">
 							生成海报
 						</view>
 					</view>
 					<view class="img_item">
-						<image src="../../static/images/friend.png" mode="aspectFill" class="share_img"></image>
+						<image :src="imgUrl+'images/friend.png'" mode="aspectFill" class="share_img"></image>
 						<view class="u-font-28 text-content u-text-center">
 							分享给好友
 						</view>
@@ -218,30 +216,87 @@
 				<view class="u-p-26 bgc_fff u-text-center" @click="showShareModal = false">取消</view>
 			</view>
 		</u-popup>
+		<u-popup v-model="ServiceModal" mode="bottom" :safe-area-inset-bottom="true" border-radius="40" z-index="99999">
+			<view class="bgc_fff">
+				<view class="u-p-40 u-font-34 text-main u-text-center">
+					客服微信
+				</view>
+				<view class="jus-spB u-p-l-40 u-p-r-40">
+					<view class="service_img_box">
+						<image :src="imgUrl+'images/qrcode.png'" mode="aspectFill" style="width: 216upx; height: 216upx;"></image>
+					</view>
+					<view class="service_info_box text-main u-font-30 jus-spB-col ">
+						<view class="jus-start ">
+							<view class="" style="width: 120upx;">
+								姓名：
+							</view>
+							<view class="">
+								把酒话东风
+							</view>
+						</view>
+						<view class="jus-start">
+							<view class="" style="width: 120upx;">
+								微信号：
+							</view>
+							<view class="u-line-1" style="width: calc(100% - 210upx);">
+								{{wxNum}}
+							</view>
+							<view class="u-m-l-10">
+								<u-button :ripple="true" :custom-style="{width:'70upx',height:'32upx',color:'#667E86',borderColor:'#667E86',fontSize:'20upx'}"
+								 shape="circle" @click="copyWX(wxNum)">复制</u-button>
+							</view>
+						</view>
+						<view class="text-tips u-font-24">
+							微信扫描右方二维码添加好友
+						</view>
+					</view>
+				</view>
+				<view class="u-p-40">
+					<u-button :ripple="true" :custom-style="{width:'100%',height:'90upx',color:'#fff',border:'none',fontSize:'32upx',backgroundColor:'#667E86'}"
+					 shape="square" @click="ServiceModal=false">我知道了</u-button>
+				</view>
+			</view>
+		</u-popup>
+		<view class="service_box jus-center" v-if="isShowTop" @click="ServiceModal = true">
+			<image :src="imgUrl+'images/service.png'" mode="aspectFill" style="width: 26upx;height: 26upx;"></image>
+			<view class="u-font-24 text-fff u-m-l-6">
+				在线客服
+			</view>
+		</view>
+		<view class="backTop" @click="backTop" v-if="isShowTop">
+			<image :src="imgUrl+'images/zhiding.png'" mode="widthFix" style="height: auto;"></image>
+		</view>
+		<view>
+			<u-toast ref="uToast" />
+		</view>
 	</view>
 </template>
 
 <script>
 	import uniSwiperDot from "@/components/uni-swiper-dot/uni-swiper-dot.vue"
-	import bgImg from "../../static/images/copy/list_head.png"
+	import h5Copy from '../../js_sdk/junyi-h5-copy/junyi-h5-copy/junyi-h5-copy.js'
+	import http from '../../common/http.js'
 	export default {
 		components: {
 			uniSwiperDot,
-			bgImg: bgImg
+
 		},
 		data() {
 			return {
 				title: 'Hello',
+				imgUrl: http.imgUrl,
 				isShowTop: false,
 				listTop: null,
 				showShareModal: false, //分享弹框
 				swiperList: [{
-						image: '../../static/images/copy/dssd.png'
+						image: http.imgUrl + 'images/copy/dssd.png'
 					},
 					{
-						image: '../../static/images/copy/list_head.png'
+						image: http.imgUrl + 'images/copy/list_head.png'
 					},
 				],
+				wxNum: 'x769612131',
+				ServiceModal: false,
 				menuList: [],
 				current: 0,
 				dotsStyles: {
@@ -423,7 +478,7 @@
 		},
 
 		mounted() {
-			console.log('mounted 组件挂载完毕状态===============》');
+
 			const query = uni.createSelectorQuery().in(this);
 			query.select('.goods_list_box').boundingClientRect(data => {
 				console.log(data);
@@ -447,68 +502,68 @@
 			getMenu: function() {
 				let menu_result = []
 				var menu_arr = [{
-						img: '../../static/images/menu/meitong.png',
+						img: this.imgUrl + 'images/menu/meitong.png',
 						name: '美瞳',
 						url: 'pages/index/index?id=11'
 					},
 					{
-						img: '../../static/images/menu/touming.png',
+						img: this.imgUrl + 'images/menu/touming.png',
 						name: '透明片',
 						url: 'pages/index/index?id=11'
 					},
 					{
-						img: '../../static/images/menu/zhoubian.png',
+						img: this.imgUrl + 'images/menu/zhoubian.png',
 						name: '护理周边',
 						url: 'pages/index/index?id=11'
 					},
 					{
-						img: '../../static/images/menu/haiwai.png',
+						img: this.imgUrl + 'images/menu/haiwai.png',
 						name: '海外精品',
 						url: 'pages/index/index?id=11'
 					},
 					{
-						img: '../../static/images/menu/jvjia.png',
+						img: this.imgUrl + 'images/menu/jvjia.png',
 						name: '居家生活',
 						url: 'pages/index/index?id=11'
 					},
 					{
-						img: '../../static/images/menu/shengxian.png',
+						img: this.imgUrl + 'images/menu/shengxian.png',
 						name: '食物生鲜',
 						url: 'pages/index/index?id=11'
 					},
 					{
-						img: '../../static/images/menu/hufu.png',
+						img: this.imgUrl + 'images/menu/hufu.png',
 						name: '医美护肤',
 						url: 'pages/index/index?id=11'
 					},
 					{
-						img: '../../static/images/menu/yinliu.png',
+						img: this.imgUrl + 'images/menu/yinliu.png',
 						name: '福利引流',
 						url: 'pages/index/index?id=11'
 					},
 					{
-						img: '../../static/images/menu/fengge.png',
+						img: this.imgUrl + 'images/menu/fengge.png',
 						name: '美瞳风格',
 						url: 'pages/index/index?id=11'
 					},
 					{
-						img: '../../static/images/menu/sexi.png',
+						img: this.imgUrl + 'images/menu/sexi.png',
 						name: '色系',
 						url: 'pages/index/index?id=11'
 					},
 					{
-						img: '../../static/images/menu/caizhi.png',
+						img: this.imgUrl + 'images/menu/caizhi.png',
 						name: '材质',
 						url: 'pages/index/index?id=11'
 					},
 					{
-						img: '../../static/images/menu/zhijing.png',
+						img: this.imgUrl + 'images/menu/zhijing.png',
 						name: '美瞳直径',
 						url: 'pages/index/index?id=11'
 					},
 
 					{
-						img: '../../static/images/menu/yuepao.png',
+						img: this.imgUrl + 'images/menu/yuepao.png',
 						name: '月抛美瞳',
 						url: 'pages/index/index?id=11'
 					}
@@ -575,6 +630,31 @@
 			goGoodInfo: function() {
 				uni.navigateTo({
 					url: '../goods/goodInfo'
+				})
+			},
+			copyWX: function(e) {
+				this.copyText(e)
+			},
+			copyText: function(e) {
+				const result = h5Copy(e)
+				if (result === false) {
+					this.showToast('暂不支持', 'error')
+				} else {
+					this.showToast('复制成功！', 'success')
+				}
+
+			},
+			showToast: function(title, type, url, param) {
+				this.$refs.uToast.show({
+					title: title,
+					type: type,
+					url: url,
+					param: param
+				})
+			},
+			goFlashSale:function(){
+				uni.navigateTo({
+					url:'../goods/flashSale'
 				})
 			}
 		}
@@ -673,16 +753,7 @@
 		color: #FC3B00;
 	}
 
-	.backTop {
-		position: fixed;
-		bottom: 140upx;
-		right: 30upx;
-		z-index: 9999;
-	}
 
-	.backTop image {
-		width: 80upx;
-	}
 
 	.img_item {
 		width: 30%;
@@ -692,6 +763,40 @@
 		width: 136upx;
 		height: 136upx;
 		margin: 0 auto;
+	}
+
+
+
+	.service_img_box {
+		padding: 8upx;
+		border: 1upx solid #DBDBDB;
+	}
+
+	.service_info_box {
+		width: calc(100% - 264upx);
+		height: 170upx;
+	}
+
+	.service_box {
+		background-color: rgba(0, 0, 0, .6);
+		width: 144upx;
+		height: 49upx;
+		position: fixed;
+		bottom: 152upx;
+		left: 30upx;
+		border-radius: 999px;
+		/* z-index: 1069; */
+	}
+
+	.backTop {
+		position: fixed;
+		bottom: 140upx;
+		right: 30upx;
+		/* z-index: 1069; */
+	}
+
+	.backTop image {
+		width: 80upx;
 	}
 </style>
 <style lang="scss" scoped>

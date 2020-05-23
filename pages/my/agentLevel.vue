@@ -3,11 +3,11 @@
 		<view class="d2_block u-line-1 text-fff border_radius_10 u-m-b-20">
 			公告：正常你的客户根据你的门槛设置，用户自行升级，本招商码会无条件直接招商
 		</view>
-		<view class="block_item jus-spB text-fff" :style="'background-image: url(../../static/images/my/level_bg'+item+'.png)'"
+		<view class="block_item jus-spB text-fff" :style="'background-image: url('+imgUrl+'images/my/level_bg'+item+'.png)'"
 		 v-for="(item,index) in list" :key="index">
 			<view class="jus-start">
 				<view class="">
-					<image src="../../static/images/my/king.png" mode="aspectFill" style="width: 64upx;height: 64upx;margin: 0 auto;"></image>
+					<image :src="imgUrl+'images/my/king.png'" mode="aspectFill" style="width: 64upx;height: 64upx;margin: 0 auto;"></image>
 					<view class="u-font-26 ">
 						VIP{{item}}
 					</view>

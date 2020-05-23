@@ -1,0 +1,45 @@
+
+.top_box {
+	background-size: 100% 100%;
+	width: 100%;
+	height: 364rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}
+.user_img_big_box {
+	height: 292rpx;
+	position: relative;
+}
+.user_img_box {
+	border-radius: 999px;
+	overflow: hidden;
+	margin: 0 auto;
+	border: 4rpx solid #dbdbdb;
+	width: 156rpx;
+	height: 156rpx;
+	position: relative;
+}
+.edit_img {
+	position: absolute;
+	bottom: 5rpx;
+	right: 10rpx;
+}
+.row_title {
+	width: 160rpx;
+	font-size: 30rpx;
+}
+.row_title input {
+	font-size: 30rpx;
+}
+.text-ccc {
+	color: #ccc;
+}
+

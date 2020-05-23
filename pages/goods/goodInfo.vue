@@ -18,7 +18,7 @@
 					</view>
 				</view>
 				<view class="share_btn jus-center">
-					<image src="../../static/images/shareimg.png" mode="widthFix" style="width: 26upx;"></image>
+					<image :src="imgUrl+'images/shareimg.png'" mode="widthFix" style="width: 26upx;"></image>
 					<view class="u-font-24 text-content u-m-l-15">分享</view>
 				</view>
 			</view>
@@ -28,7 +28,7 @@
 		</view>
 		<view class="bgc_fff p-20-30 jus-spB u-m-b-20">
 			<view class="jus-start">
-				<image src="../../static/images/brand.png" mode="aspectFill" style="width: 70upx; height: 70upx;"></image>
+				<image :src="imgUrl+'images/brand.png'" mode="aspectFill" style="width: 70upx; height: 70upx;"></image>
 				<view class="text-main u-font-26 u-m-l-20">
 					GUESS
 				</view>
@@ -101,7 +101,7 @@
 		<view class="p-20-30 bgc_fff u-m-b-20 ">
 			<view class="jus-spB u-p-b-20 u-border-bottom">
 				<view class="jus-start">
-					<image src="../../static/images/brand.png" mode="aspectFill" style="width: 96upx ;height: 96upx;"></image>
+					<image :src="imgUrl+'images/brand.png'" mode="aspectFill" style="width: 96upx ;height: 96upx;"></image>
 					<view class="text-tips u-m-l-20" style="height: 96upx;">
 						SWEETY EYE
 					</view>
@@ -112,13 +112,13 @@
 			</view>
 			<view class="u-p-t-20 jus-start">
 				<view class="jus-start">
-					<image src="../../static/images/duihao.png" mode="widthFix" style="width:18upx;"></image>
+					<image :src="imgUrl+'images/duihao.png'" mode="widthFix" style="width:18upx;"></image>
 					<view class="text-content u-font-24 u-m-l-10">
 						品质担保
 					</view>
 				</view>
 				<view class="jus-start u-m-l-20">
-					<image src="../../static/images/duihao.png" mode="widthFix" style="width:18upx;"></image>
+					<image :src="imgUrl+'images/duihao.png'" mode="widthFix" style="width:18upx;"></image>
 					<view class="text-content u-font-24 u-m-l-10">
 						售后无忧
 					</view>
@@ -141,15 +141,15 @@
 		<view class="bottom_bar jus-spB">
 			<view class="jus-spB" style="width: 35%;">
 				<view class="" @click="goIndex">
-					<image src="../../static/images/goodInfoIndex.png" mode="aspectFill" style="width:40upx ;height: 40upx;margin: 0 auto;"></image>
+					<image :src="imgUrl+'images/goodInfoIndex.png'" mode="aspectFill" style="width:40upx ;height: 40upx;margin: 0 auto;"></image>
 					<view class="u-font-21 text-content u-text-center u-m-t-10">首页</view>
 				</view>
 				<view class="">
-					<image src="../../static/images/goodInfoCollect.png" mode="aspectFill" style="width:40upx ;height: 40upx;margin: 0 auto;"></image>
+					<image :src="imgUrl+'images/goodInfoCollect.png'" mode="aspectFill" style="width:40upx ;height: 40upx;margin: 0 auto;"></image>
 					<view class="u-font-21 text-content u-text-center u-m-t-10">关注</view>
 				</view>
 				<view class="">
-					<image src="../../static/images/goodInfoCart.png" mode="aspectFill" style="width:40upx ;height: 40upx;margin: 0 auto;"></image>
+					<image :src="imgUrl+'images/goodInfoCart.png'" mode="aspectFill" style="width:40upx ;height: 40upx;margin: 0 auto;"></image>
 					<view class="u-font-21 text-content u-text-center u-m-t-10">购物车</view>
 				</view>
 			</view>
@@ -166,7 +166,7 @@
 			<view class="u-p-30">
 				<view class="jus-spB">
 					<view class="">
-						<image src="../../static/images/copy/images15.png" mode="aspectFill" style="width: 172upx;height: 172upx; " class="border_radius_10"></image>
+						<image :src="imgUrl+'images/copy/images15.png'" mode="aspectFill" style="width: 172upx;height: 172upx; " class="border_radius_10"></image>
 					</view>
 					<view class="jus-spB-col buy_modal_goods_info" style="">
 						<view class="jus-end">
@@ -236,9 +236,9 @@
 				specId1: null,
 				specId2: null,
 				swiperList: [{
-					image: '../../static/images/copy/list_head.png'
+					image: http.imgUrl+'images/copy/list_head.png'
 				}, {
-					image: '../../static/images/brand1.png'
+					image: http.imgUrl+'images/brand1.png'
 				}, ],
 				specArr: {
 					title: '颜色',

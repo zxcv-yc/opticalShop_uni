@@ -67,7 +67,9 @@
 		font-weight: 500;
 		font-size: 28rpx;
 		line-height: 1.2;
-		background-color: rgb(245, 245, 245);
+		// background-color: rgb(245, 245, 245);
+		background-color: rgb(250, 250, 250);
+		
 	}
 
 	.u-index-anchor--active {

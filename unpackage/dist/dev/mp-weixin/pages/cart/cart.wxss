@@ -1,0 +1,45 @@
+
+page {
+	background-color: #ededed;
+}
+.cart_box {
+	padding: 30rpx;
+}
+.cart_item {
+	padding: 30rpx 20rpx;
+	margin-bottom: 30rpx;
+}
+.cart_item_info {
+	width: calc(100% - 218rpx);
+}
+.cart_item_title {
+	width: calc(100% - 42rpx);
+}
+.text-FC3B00 {
+	color: #FC3B00;
+}
+.bottom_bar {
+	padding: 20rpx;
+	width: 100%;
+	position: fixed;
+	bottom:50px;
+}
+.settlement_btn {
+	line-height: 66rpx;
+	width: 192rpx;
+	border-radius: 999px;
+	color: #fff;
+	background-color: #FE464A;
+	font-size: 32rpx;
+	text-align: center;
+	margin-left: 30rpx;
+}
+.goods_list {
+	padding-bottom: 130rpx !important;
+}
+.goods_item {
+	width: 328rpx;
+	overflow: hidden;
+	margin-bottom: 20rpx;
+}
+

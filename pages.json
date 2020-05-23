@@ -36,12 +36,6 @@
 				"navigationBarTitleText": "全部商品",
 				"navigationStyle": "custom"
 			}
-		}, {
-			"path": "pages/member/member",
-			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": "会员邀请码"
-			}
 		}
 
 		, {
@@ -93,20 +87,76 @@
 				"navigationBarTitleText": "品牌",
 				"navigationStyle": "custom"
 			}
-		}
-	    ,{
-            "path" : "pages/goods/goodInfo",
-            "style" : {
+		}, {
+			"path": "pages/goods/goodInfo",
+			"style": {
 				"navigationBarTitleText": "详情"
 			}
-        }
-        ,{
-            "path" : "pages/brand/choicenessBrand",
-            "style" : {
+		}, {
+			"path": "pages/brand/choicenessBrand",
+			"style": {
 				"navigationBarTitleText": "精选品牌"
 			}
-        }
-    ],
+		}, {
+			"path": "pages/finance/financeCenter",
+			"style": {
+				"navigationBarTitleText": "财务中心",
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/shop/shopSetting",
+			"style": {
+				"navigationBarTitleText": "店铺设置"
+			}
+		}, {
+			"path": "pages/my/setting",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		}, {
+			"path": "pages/my/addressList",
+			"style": {
+				"navigationBarTitleText": "收货地址"
+			}
+		}, {
+			"path": "pages/my/editAddress",
+			"style": {
+				"navigationBarTitleText": "新增地址"
+			}
+		}, {
+			"path": "pages/member/memberInvitationCode",
+			"style": {
+				"navigationBarTitleText": "会员邀请码",
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/goods/flashSale",
+			"style": {
+				"navigationBarTitleText": "限时抢购"
+			}
+		}, {
+			"path": "pages/shop/thresholdSetting",
+			"style": {
+				"navigationBarTitleText": "门槛设置"
+			}
+		}, {
+			"path": "pages/my/accountSecuritySetting",
+			"style": {
+				"navigationBarTitleText": "账号安全"
+			}
+		}, {
+			"path": "pages/my/emailAuthentication",
+			"style": {
+				"navigationBarTitleText": "邮箱认证"
+			}
+		}, {
+			"path": "pages/my/footprint",
+			"style": {
+				"navigationBarTitleText": "我的足迹",
+				"navigationStyle": "custom"
+			}
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "美瞳",
@@ -116,7 +166,7 @@
 	"tabBar": {
 		"color": "#5E6060",
 		"selectedColor": "#FE464A",
-		"borderStyle": "black",
+		"borderStyle": "white",
 		"backgroundColor": "#ffffff",
 		"list": [{
 				"pagePath": "pages/index/index",

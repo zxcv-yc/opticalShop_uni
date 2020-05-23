@@ -12,7 +12,7 @@
 			<view class="agent_item">
 				<view class="jus-spB">
 					<view class="jus-start">
-						<image src="../../static/images/copy/list_head.png" mode="aspectFill" style="width: 80upx; height: 80upx;" class="border_radius_10"></image>
+						<image :src="imgUrl+'images/copy/list_head.png'" mode="aspectFill" style="width: 80upx; height: 80upx;" class="border_radius_10"></image>
 						<view class="jus-spB-col u-m-l-20" style="height: 80upx;">
 							<view class="u-font-30 text-main">
 								<text>代理名称</text><text class="u-font-24 text-content">(220364121524)</text>

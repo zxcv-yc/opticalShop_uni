@@ -1,0 +1,15 @@
+
+page {
+	background-color: #EDEDED;
+}
+.address_info_row {
+
+	padding: 30rpx 0;
+}
+.row_title {
+	width: 150rpx;
+}
+.item_top{
+	height: 100rpx;
+}
+

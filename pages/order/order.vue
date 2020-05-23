@@ -24,7 +24,7 @@
 					</view>
 				</view>
 				<view class="u-p-30 jus-spB" style="background-color: #FBFBFB;">
-					<image src="../../static/images/copy/list_head.png" mode="aspectFill" style="width: 94upx;height: 94upx;"></image>
+					<image :src="imgUrl+'images/copy/list_head.png'" mode="aspectFill" style="width: 94upx;height: 94upx;"></image>
 					<view class="jus-spB u-flex-1 u-m-l-20">
 						<view class="" style="max-width: 400upx;">
 							<view class="text-main u-font-28 u-line-1">

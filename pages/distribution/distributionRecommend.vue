@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="top_box " style="background-image: url(../../static/images/fenxiaobg.png);">
+		<view class="top_box " :style="'background-image: url('+imgUrl+'images/fenxiaobg.png);'">
 			<view class="text-fff u-p-l-40 u-p-t-60 ">
 				<view class="text-bold text-50upx u-m-b-30">
 					分销俱乐部
@@ -12,25 +12,25 @@
 		</view>
 		<view class="u-p-t-30 u-p-b-30">
 			<view class="row_item jus-start u-p-t-20 u-p-b-20 u-border-bottom">
-				<image src="../../static/images/menu/touming.png" mode="aspectFill" style="width: 112upx; height: 112upx;"></image>
+				<image :src="imgUrl+'images/menu/touming.png'" mode="aspectFill" style="width: 112upx; height: 112upx;"></image>
 				<view class="u-font-30 u-m-l-20">
 					享受高于钻石会员的最高折扣价格
 				</view>
 			</view>
 			<view class="row_item jus-start u-p-t-20 u-p-b-20 u-border-bottom">
-				<image src="../../static/images/menu/touming.png" mode="aspectFill" style="width: 112upx; height: 112upx;"></image>
+				<image :src="imgUrl+'images/menu/touming.png'" mode="aspectFill" style="width: 112upx; height: 112upx;"></image>
 				<view class="u-font-30 u-m-l-20">
 					一键分享 自动结算 便可轻松收益
 				</view>
 			</view>
 			<view class="row_item jus-start u-p-t-20 u-p-b-20 u-border-bottom">
-				<image src="../../static/images/menu/touming.png" mode="aspectFill" style="width: 112upx; height: 112upx;"></image>
+				<image :src="imgUrl+'images/menu/touming.png'" mode="aspectFill" style="width: 112upx; height: 112upx;"></image>
 				<view class="u-font-30 u-m-l-20">
 					升级代言人可拿团队总收益提成
 				</view>
 			</view>
 			<view class="row_item jus-start u-p-t-20 u-p-b-20 u-border-bottom">
-				<image src="../../static/images/menu/touming.png" mode="aspectFill" style="width: 112upx; height: 112upx;"></image>
+				<image :src="imgUrl+'images/menu/touming.png'" mode="aspectFill" style="width: 112upx; height: 112upx;"></image>
 				<view class="u-font-30 u-m-l-20">
 					适合购物型用户 折扣最高 边用边赚
 				</view>
@@ -43,7 +43,7 @@
 			<view class="u-p-b-20 u-p-t-20">
 				<view class="type_item border_radius_999  jus-spB u-m-b-30" v-for="(item,index) in list" :key="index">
 					<view class="jus-start">
-						<image src="../../static/images/copy/rengong.png" mode="aspectFill" style="width: 60upx;height: 60upx;"></image>
+						<image :src="imgUrl+'images/copy/rengong.png'" mode="aspectFill" style="width: 60upx;height: 60upx;"></image>
 						<view class="text-main u-p-l-30">
 							直接购买{{item.name}}
 						</view>

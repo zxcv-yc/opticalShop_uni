@@ -11,7 +11,7 @@
 		<view class="goods_list u-p-30 ">
 			<view class="goods_item jus-spB u-border-bottom u-p-b-30 u-p-t-30" v-for="(item,index) in tabList" :key="index">
 				<view class="">
-					<image src="../../static/images/copy/dssd.png" mode="aspectFill" style="width: 180upx;height: 180upx;"></image>
+					<image :src="imgUrl+'images/copy/dssd.png'" mode="aspectFill" style="width: 180upx;height: 180upx;"></image>
 				</view>
 				<view class="goods_item_info jus-spB-col">
 					<view class="text-main u-font-26 u-line-2">

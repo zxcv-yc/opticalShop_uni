@@ -1,0 +1,23 @@
+
+page {
+	background-color: #EDEDED;
+}
+.text-FC3B00 {
+	color: #FC3B00;
+}
+.goods_list {
+	/* padding: 0 20upx; */
+	padding-bottom: 90rpx;
+}
+.goods_item {
+	width: calc(calc(100% / 3) - 20rpx);
+	margin: 10rpx;
+	overflow: hidden;
+}
+.bottom_btn {
+	width: 90%;
+	position: fixed;
+	bottom: 30rpx;
+	left: 5%;
+}
+

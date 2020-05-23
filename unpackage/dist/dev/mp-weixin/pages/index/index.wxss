@@ -1,0 +1,176 @@
+
+.search_box {
+	padding: 10rpx 20rpx;
+	background-color: #DFDFDF;
+}
+.menu_item {
+	width: 25%;
+	margin-bottom: 20rpx;
+}
+.menu_item image {
+	width: 110rpx;
+	height: 110rpx;
+	margin: 0 auto;
+}
+.news_box {
+	background-color: #F9F9F9;
+}
+.left_box {
+	background-color: #FFF9EC;
+	padding-top: 40rpx;
+	width: calc(50% - 15rpx);
+	height: 340rpx;
+}
+.right_top_box {
+	height: calc(50% - 15rpx);
+	background-color: #FFF6F4;
+}
+.right_box {
+	height: 100%;
+	width: calc(50% - 15rpx);
+	height: 340rpx;
+}
+.right_bottom_box {
+	height: calc(50% - 15rpx);
+	background-color: #E8F6FF;
+}
+.goods_list_box {
+	padding: 30rpx;
+	background-color: #EDEDED;
+}
+.uni-bg-red {
+	background: red;
+}
+.uni-bg-green {
+	background: green;
+}
+.uni-bg-blue {
+	background: blue;
+}
+.scroll-view-item_H {
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	padding-left: 10rpx;
+	text-align: center;
+}
+.list_head {
+	height: 328rpx;
+	background-size: 100% 100%;
+	background-image: url(https://i.loli.net/2020/05/20/Wwa3b5g7SdsuVHx.png);
+}
+.list_head_btn {
+	height: 52rpx;
+	width: 180rpx;
+	background-color: #C61D39;
+	border-radius: 10rpx;
+	border: 1rpx solid #EDEDED;
+	box-sizing: border-box;
+	margin-left: 60rpx;
+}
+.text-FC3B00 {
+	color: #FC3B00;
+}
+.img_item {
+	width: 30%;
+}
+.share_img {
+	width: 136rpx;
+	height: 136rpx;
+	margin: 0 auto;
+}
+.service_img_box {
+	padding: 8rpx;
+	border: 1rpx solid #DBDBDB;
+}
+.service_info_box {
+	width: calc(100% - 264rpx);
+	height: 170rpx;
+}
+.service_box {
+	background-color: rgba(0, 0, 0, .6);
+	width: 144rpx;
+	height: 49rpx;
+	position: fixed;
+	bottom: 152rpx;
+	left: 30rpx;
+	border-radius: 999px;
+	/* z-index: 1069; */
+}
+.backTop {
+	position: fixed;
+	bottom: 140rpx;
+	right: 30rpx;
+	/* z-index: 1069; */
+}
+.backTop image {
+	width: 80rpx;
+}
+
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.demo-warter.data-v-5662f2a6 {
+  border-radius: 8px;
+  margin: 5px;
+  background-color: #FFFFFF;
+  padding: 8px;
+}
+.demo-image.data-v-5662f2a6 {
+  width: 100%;
+  border-radius: 4px;
+}
+.demo-title.data-v-5662f2a6 {
+  font-size: 30rpx;
+  margin-top: 5px;
+  color: #303133;
+}
+.demo-tag.data-v-5662f2a6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 5px;
+}
+.demo-tag-owner.data-v-5662f2a6 {
+  background-color: #fa3534;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 4rpx 14rpx;
+  border-radius: 50rpx;
+  font-size: 20rpx;
+  line-height: 1;
+}
+.demo-tag-text.data-v-5662f2a6 {
+  border: 1px solid #2979ff;
+  color: #2979ff;
+  margin-left: 10px;
+  border-radius: 50rpx;
+  line-height: 1;
+  padding: 4rpx 14rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  border-radius: 50rpx;
+  font-size: 20rpx;
+}
+.demo-price.data-v-5662f2a6 {
+  font-size: 30rpx;
+  color: #fa3534;
+  margin-top: 5px;
+}
+.demo-shop.data-v-5662f2a6 {
+  font-size: 22rpx;
+  color: #909399;
+  margin-top: 5px;
+}
+

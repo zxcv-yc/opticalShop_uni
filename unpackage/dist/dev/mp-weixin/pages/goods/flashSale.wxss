@@ -1,0 +1,22 @@
+
+page {
+	/* background-color: #EDEDED; */
+}
+.goods_list {
+	padding: 30rpx;
+}
+.goods_item {
+	padding-bottom: 30rpx;
+	border-bottom: 1rpx solid #EDEDED;
+	margin-bottom: 30rpx;
+}
+.goods_item image {
+	width: 180rpx;
+	height: 180rpx;
+	border-radius: 10rpx;
+}
+.goods_item_info {
+	width: calc(100% - 200rpx);
+	height: 180rpx;
+}
+

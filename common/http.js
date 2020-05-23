@@ -1,6 +1,6 @@
 const baseUrl = 'https://hzdykj.boyaokj.cn/index.php/api/';
 // const URL = 'https://hzdykj.boyaokj.cn/index.php/api/';
-const imgUrl = 'https://hzdykj.boyaokj.cn/';
+const imgUrl = 'http://twenty-eight.top/static/';
 const httpRequest = (opts, data, loading = true) => {
 	if (loading) {
 		uni.showLoading()

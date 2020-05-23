@@ -1,0 +1,15 @@
+
+page {
+	background-color: #EDEDED;
+}
+.width_180 {
+	width: 180rpx;
+}
+.input-placeholder {
+	color: #999B97;
+	font-size: 30rpx;
+	margin: 0;
+	padding: 0;
+	line-height: 100%;
+}
+

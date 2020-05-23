@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "所有品牌",
+  "usingComponents": {
+    "u-search": "/uview-ui/components/u-search/u-search",
+    "u-tabs": "/uview-ui/components/u-tabs/u-tabs",
+    "u-index-list": "/uview-ui/components/u-index-list/u-index-list",
+    "u-index-anchor": "/uview-ui/components/u-index-anchor/u-index-anchor",
+    "u-toast": "/uview-ui/components/u-toast/u-toast"
+  }
+}

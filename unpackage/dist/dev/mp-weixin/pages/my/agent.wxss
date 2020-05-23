@@ -1,0 +1,38 @@
+
+page {
+	background-color: #ededed;
+}
+.u-search-box {
+	padding: 18rpx 30rpx;
+}
+.text-FF2B22 {
+	color: #FF2B22;
+}
+.agent_item_btn {
+	font-size: 24rpx;
+	color: #FEFFFF;
+	width: 88rpx;
+	height: 42rpx;
+	line-height: 42rpx;
+	text-align: center;
+	border-radius: 4rpx;
+	background-color: #667E86;
+}
+.agent_item {
+	background-color: #fff;
+	margin-top: 20rpx;
+	padding: 30rpx;
+}
+.f8_block {
+	background-color: #f8f8f8;
+	padding: 20rpx 0;
+	margin: 20rpx 0;
+}
+.text-667E86 {
+	color: #667E86;
+}
+.f8_item {
+	width: 30%;
+	text-align: center;
+}
+

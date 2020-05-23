@@ -1,13 +1,13 @@
 <template>
 	<view class="container">
 		<view class="bgc_fff">
-			<view class="top_box jus-spB-col" style="background-image: url(../../static/images/brandBg.png);">
+			<view class="top_box jus-spB-col" :style="'background-image: url('+imgUrl+'images/brandBg.png);'">
 				<view class="jus-spB navBar text-fff">
 					<view class="" style="width: 110upx;">
 						<u-icon name="arrow-left" size="32" color="#fff" @click="goBack"></u-icon>
 					</view>
 					<view class="">
-						<image src="../../static/images/share.png" mode="widthFix" style="width: 32upx;"></image>
+						<image :src="imgUrl+'images/share.png'" mode="widthFix" style="width: 32upx;"></image>
 					</view>
 				</view>
 				<view class="jus-end u-p-r-30 u-p-b-20">
@@ -15,7 +15,7 @@
 						粉丝：1w
 					</view>
 					<view class="jus-start u-m-l-20">
-						<image src="../../static/images/xihuan.png" mode="widthFix" style="width: 28upx;"></image>
+						<image :src="imgUrl+'images/xihuan.png'" mode="widthFix" style="width: 28upx;"></image>
 						<view class="u-font-24 text-fff u-m-l-10">
 							收藏
 						</view>
@@ -24,7 +24,7 @@
 			</view>
 			<view class="brand_content">
 				<view class="jus-start u-m-l-30">
-					<image src="../../static/images/brand.png" mode="aspectFill" style="width: 140upx;height: 140upx;"></image>
+					<image :src="imgUrl+'images/brand.png'" mode="aspectFill" style="width: 140upx;height: 140upx;"></image>
 					<view class="u-m-l-20 u-m-t-20">
 						<view class="u-font-26 ">
 							日韩高端美瞳品牌
@@ -58,7 +58,7 @@
 		</view>
 		<view class="goods_list jus-spB flex_warp">
 			<view class="goods_item bgc_fff border_radius_20" v-for="(item,index) in tabList" :key="index">
-				<image src="../../static/images/copy/dssd.png" mode="aspectFill" style="width: 100%; height: 352upx;"></image>
+				<image :src="imgUrl+'images/copy/dssd.png'" mode="aspectFill" style="width: 100%; height: 352upx;"></image>
 				<view class="u-p-20">
 					<view class="u-font-26 text-main u-line-2">
 						日本美瞳日抛Flanmy隐形眼镜近视桥本环奈自然大直径

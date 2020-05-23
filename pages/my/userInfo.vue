@@ -1,19 +1,19 @@
 <template>
 	<view class="container">
-		<view class="top_box" style="background-image: url(../../static/images/my/img15.png);">
+		<view class="top_box" :style="'background-image: url('+imgUrl+'images/my/img15.png);'">
 			<view class="jus-start u-p-t-40 u-p-l-30 ">
 				<navigator open-type="navigateBack" hover-class="none">
-					<image src="../../static/images/my/back.png" mode="widthFix" style="width: 32upx;"></image>
+					<image :src="imgUrl+'images/my/back.png'" mode="widthFix" style="width: 32upx;"></image>
 				</navigator>
 			</view>
 			<view class="jus-center user_img_big_box">
 				<view class="">
 					<view class="" style="position: relative;">
 						<view class="user_img_box">
-							<image src="../../static/images/copy/list_head.png" mode="aspectFill" style="width: 156upx;height: 156upx;border-radius: 999px;"></image>
+							<image :src="imgUrl+'images/copy/list_head.png'" mode="aspectFill" style="width: 156upx;height: 156upx;border-radius: 999px;"></image>
 						</view>
 						<view class="edit_img" @click="editUserImg">
-							<image src="../../static/images/my/bianji.png" mode="aspectFit" style="width: 48upx;height: 48upx;"></image>
+							<image :src="imgUrl+'images/my/bianji.png'" mode="aspectFit" style="width: 48upx;height: 48upx;"></image>
 						</view>
 					</view>
 					<view class="u-font-36 text-fff u-m-t-20 u-bold-border u-text-center">把酒话东风</view>
