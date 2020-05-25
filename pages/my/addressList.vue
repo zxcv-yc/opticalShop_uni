@@ -17,7 +17,7 @@
 		<view class="address_list u-m-t-20">
 			<view class="address_item jus-spB bgc_fff u-p-30 u-m-b-2" v-for="(item,index) in list" :key="index">
 				<view class="jus-start u-flex-1">
-					<image :src="imgUrl+'images/address.png'" mode="aspectFill" style="width: 60upx; height: 60upx;"></image>
+					<image :src="imgUrl+'images/copy/cdjh.png'" mode="aspectFill" style="width: 60upx; height: 60upx;"></image>
 					<view class="address_info u-m-l-20">
 						<view class="jus-start u-m-b-10">
 							<view class="u-font-30 text-main">

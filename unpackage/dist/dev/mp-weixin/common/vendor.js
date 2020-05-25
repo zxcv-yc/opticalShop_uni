@@ -757,7 +757,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1555,7 +1555,219 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
-/***/ 16:
+/***/ 12:
+/*!*****************************************************************!*\
+  !*** C:/Users/windows/Documents/opticalShop_uni/common/util.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.util = void 0;
+var _http = _interopRequireDefault(__webpack_require__(/*! ./http.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var
+util =
+function util() {_classCallCheck(this, util);
+
+};
+
+// 微信公众号授权
+exports.util = util;util.wxAuthorize = function (appid) {
+  // console.log('执行')
+  // let link = window.location.href;
+  // let params = util.getUrlParam('code'); // 地址解析
+  // console.log(link)
+  // console.log(params)
+  // // 已经授权登录过的就不用再授权了
+  // // if (store.state.token) return;
+
+  // // 如果拿到code，调用授权接口，没有拿到就跳转微信授权链接获取
+  // if (params) {
+  // 	console.log('拿到了code===>' + params)
+  // 	// console.log(params)
+  // 	// api.wxAuth(params.code); // 调用后台接口，授权
+  // } else {
+  // 	console.log('没拿到code')
+  // 	// return
+  // 	// let appid = 'xxx';
+  // 	let uri = encodeURIComponent(link);
+  // 	let authURL =
+  // 		'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + uri +
+  // 		'&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect';
+  // 	// window.location.href = authURL;
+  // }
+  uni.showLoading({
+    title: '加载中' });
+
+  _http.default.ajax({
+    method: 'POST',
+    url: 'GetJssdkConfig',
+    data: {},
+    success: function success(res) {
+      console.log(res);
+      uni.hideLoading();
+    } });
+
+};
+util.getUrlParam = function (name) {
+  var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+  var r = window.location.search.substr(1).match(reg);
+  if (r != null) {
+    return unescape(r[2]);
+  }
+  return null;
+};
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 13:
+/*!*****************************************************************!*\
+  !*** C:/Users/windows/Documents/opticalShop_uni/common/http.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var baseUrl = 'http://meitong.boyaokj.cn/app/index.php';
+// const URL = 'https://hzdykj.boyaokj.cn/index.php/api/';
+var imgUrl = 'http://twenty-eight.top/static/';
+var httpRequest = function httpRequest(opts, data) {var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  if (loading) {
+    uni.showLoading();
+  }
+  var _p = {
+    i: 1,
+    c: entry,
+    m: ewei_shopv2 };
+
+  var httpDefaultOpts = {
+    url: baseUrl + '?i=1&c=entry&m=ewei_shopv2&do=' + opts.url,
+    data: data,
+    method: opts.method,
+    header: opts.method == 'get' ? {
+      'X-Requested-With': 'XMLHttpRequest',
+      "Accept": "application/json",
+      "Content-Type": "application/json; charset=UTF-8" } :
+    {
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+
+    dataType: 'json' };
+
+  var promise = new Promise(function (resolve, reject) {
+    uni.request(httpDefaultOpts).then(
+    function (res) {
+      resolve(res[1]);
+    }).
+    catch(
+    function (response) {
+      reject(response);
+    });
+
+  });
+  if (loading) {
+    uni.hideLoading();
+  }
+  return promise;
+};
+//带Token请求
+var httpTokenRequest = function httpTokenRequest(opts, data) {
+  var token = "";
+  uni.getStorage({
+    key: 'token',
+    success: function success(ress) {
+      token = ress.data;
+    } });
+
+  //此token是登录成功后后台返回保存在storage中的
+  var httpDefaultOpts = {
+    url: baseUrl + opts.url,
+    data: data,
+    method: opts.method,
+    header: opts.method == 'get' ? {
+      'Token': token,
+      'X-Requested-With': 'XMLHttpRequest',
+      "Accept": "application/json",
+      "Content-Type": "application/json; charset=UTF-8" } :
+    {
+      'Token': token,
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+
+    dataType: 'json' };
+
+  var promise = new Promise(function (resolve, reject) {
+    uni.request(httpDefaultOpts).then(
+    function (res) {
+      resolve(res[1]);
+    }).
+    catch(
+    function (response) {
+      reject(response);
+    });
+
+  });
+  return promise;
+};
+var URL = 'http://meitong.boyaokj.cn/app/index.php';
+var PARAM = 't=0&c=entry&from=wxapp&a=wxapp&m=ewei_shopv2&do=';
+
+/* 封装ajax函数
+                                                                 * @param {string}opt.type http连接的方式，包括POST和GET两种方式
+                                                                 * @param {string}opt.url 发送请求的url
+                                                                 * @param {boolean}opt.async 是否为异步请求，true为异步的，false为同步的
+                                                                 * @param {object}opt.data 发送的参数，格式为对象类型
+                                                                 * @param {function}opt.success ajax发送并接收成功调用的回调函数
+                                                                 */
+
+var ajax = function ajax(opt) {
+  opt = opt || {};
+  opt.method = opt.method.toUpperCase() || 'POST';
+  opt.url = URL + '?' + PARAM + opt.url || '';
+  opt.async = opt.async || true;
+  opt.data = opt.data || null;
+  opt.success = opt.success || function () {};
+  var xmlHttp = null;
+  if (XMLHttpRequest) {
+    xmlHttp = new XMLHttpRequest();
+  } else {
+    xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+  }
+  var params = [];
+  if (!opt.data.i) {
+    opt.url = opt.url + '&' + 'i=2';
+  }
+
+  for (var key in opt.data) {
+    opt.url = opt.url + '&' + key + '=' + opt.data[key];
+    // params.push(key + '=' + opt.data[key]);
+  }
+  var postData = params.join('&');
+  if (opt.method.toUpperCase() === 'POST') {
+    xmlHttp.open(opt.method, opt.url, opt.async);
+    xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+    xmlHttp.send(postData);
+  } else if (opt.method.toUpperCase() === 'GET') {
+    xmlHttp.open(opt.method, opt.url + '?' + postData, opt.async);
+    xmlHttp.send(null);
+  }
+  xmlHttp.onreadystatechange = function () {
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+      opt.success(xmlHttp.responseText);
+    }
+  };
+};var _default =
+{
+  baseUrl: baseUrl,
+  httpRequest: httpRequest,
+  httpTokenRequest: httpTokenRequest,
+  imgUrl: imgUrl,
+  ajax: ajax };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 18:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -1684,7 +1896,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 17:
+/***/ 19:
 /*!********************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/index.js ***!
   \********************************************************************/
@@ -1693,13 +1905,11 @@ function normalizeComponent (
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 18));
+var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 20));
 
-var _mpShare = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mpShare.js */ 19));
+var _mpShare = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mpShare.js */ 21));
 
-var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 20));
-
-
+var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 22));
 
 
 
@@ -1718,37 +1928,39 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 
 
 
 
-var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 24));
-
-var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 25));
-
-var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 26));
-
-var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 27));
-
-var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 28));
-
-var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 29));
-
-var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 30));
-
-var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 31));
-
-var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 32));
 
 
-var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 33));
+var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 26));
 
-var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 34));
+var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 27));
 
-var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 35));
+var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 28));
 
-var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 36));
+var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 29));
+
+var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 30));
+
+var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 31));
+
+var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 32));
+
+var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 33));
+
+var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 34));
 
 
-var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 37));
+var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 35));
 
-var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 38));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
+var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 36));
+
+var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 37));
+
+var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 38));
+
+
+var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 39));
+
+var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 40));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
 // 引入关于是否mixin集成小程序分享的配置
 // 全局挂载引入http相关请求拦截插件
 function wranning(str) {// 开发环境进行信息输出,主要是一些报错信息
@@ -1800,68 +2012,6 @@ var install = function install(Vue) {
 
 {
   install: install };exports.default = _default;
-
-/***/ }),
-
-/***/ 18:
-/*!*******************************************************************************!*\
-  !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/mixin/mixin.js ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(uni) {module.exports = {
-  data: function data() {
-    return {};
-  },
-  onLoad: function onLoad() {
-    // getRect挂载到$u上，因为这方法需要使用in(this)，所以无法把它独立成一个单独的文件导出
-    this.$u.getRect = this.$uGetRect;
-  },
-  methods: {
-    // 查询节点信息
-    $uGetRect: function $uGetRect(selector, all) {var _this = this;
-      return new Promise(function (resolve) {
-        uni.createSelectorQuery().
-        in(_this)[all ? 'selectAll' : 'select'](selector).
-        boundingClientRect(function (rect) {
-          if (all && Array.isArray(rect) && rect.length) {
-            resolve(rect);
-          }
-          if (!all && rect) {
-            resolve(rect);
-          }
-        }).
-        exec();
-      });
-    } },
-
-  onReachBottom: function onReachBottom() {
-    uni.$emit('uOnReachBottom');
-  } };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 19:
-/*!*********************************************************************************!*\
-  !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/mixin/mpShare.js ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = {
-  onLoad: function onLoad() {
-    // 设置默认的转发参数
-    this.$u.mpShare = {
-      title: '', // 默认为小程序名称
-      path: '', // 默认为当前页面路径
-      imageUrl: '' // 默认为当前页面的截图
-    };
-  },
-  onShareAppMessage: function onShareAppMessage() {
-    return this.$u.mpShare;
-  } };
 
 /***/ }),
 
@@ -7397,7 +7547,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7418,14 +7568,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7501,7 +7651,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -7896,6 +8046,68 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 20:
+/*!*******************************************************************************!*\
+  !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/mixin/mixin.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(uni) {module.exports = {
+  data: function data() {
+    return {};
+  },
+  onLoad: function onLoad() {
+    // getRect挂载到$u上，因为这方法需要使用in(this)，所以无法把它独立成一个单独的文件导出
+    this.$u.getRect = this.$uGetRect;
+  },
+  methods: {
+    // 查询节点信息
+    $uGetRect: function $uGetRect(selector, all) {var _this = this;
+      return new Promise(function (resolve) {
+        uni.createSelectorQuery().
+        in(_this)[all ? 'selectAll' : 'select'](selector).
+        boundingClientRect(function (rect) {
+          if (all && Array.isArray(rect) && rect.length) {
+            resolve(rect);
+          }
+          if (!all && rect) {
+            resolve(rect);
+          }
+        }).
+        exec();
+      });
+    } },
+
+  onReachBottom: function onReachBottom() {
+    uni.$emit('uOnReachBottom');
+  } };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 21:
+/*!*********************************************************************************!*\
+  !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/mixin/mpShare.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+  onLoad: function onLoad() {
+    // 设置默认的转发参数
+    this.$u.mpShare = {
+      title: '', // 默认为小程序名称
+      path: '', // 默认为当前页面路径
+      imageUrl: '' // 默认为当前页面的截图
+    };
+  },
+  onShareAppMessage: function onShareAppMessage() {
+    return this.$u.mpShare;
+  } };
+
+/***/ }),
+
+/***/ 22:
 /*!*********************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/request/index.js ***!
   \*********************************************************************************/
@@ -7903,7 +8115,7 @@ internalMixin(Vue);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 21));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
 
 
 
@@ -8073,18 +8285,18 @@ new Request();exports.default = _default;
 
 /***/ }),
 
-/***/ 21:
+/***/ 23:
 /*!*********************************************************************************************!*\
   !*** ./node_modules/@vue/babel-preset-app/node_modules/@babel/runtime/regenerator/index.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 22);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 24);
 
 /***/ }),
 
-/***/ 22:
+/***/ 24:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -8115,7 +8327,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 23);
+module.exports = __webpack_require__(/*! ./runtime */ 25);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -8132,7 +8344,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 23:
+/***/ 25:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -8864,7 +9076,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 24:
+/***/ 26:
 /*!****************************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/queryParams.js ***!
   \****************************************************************************************/
@@ -8933,7 +9145,7 @@ queryParams;exports.default = _default;
 
 /***/ }),
 
-/***/ 25:
+/***/ 27:
 /*!**********************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/route.js ***!
   \**********************************************************************************/
@@ -8941,7 +9153,7 @@ queryParams;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _queryParams = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/queryParams.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _queryParams = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/queryParams.js */ 26));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 /**
                                                                                                                                                                                                                                                                                             * 路由跳转
                                                                                                                                                                                                                                                                                             * 注意:本方法没有对跳转的回调函数进行封装
@@ -9030,7 +9242,7 @@ route;exports.default = _default;
 
 /***/ }),
 
-/***/ 26:
+/***/ 28:
 /*!***************************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/timeFormat.js ***!
   \***************************************************************************************/
@@ -9070,7 +9282,7 @@ timeFormat;exports.default = _default;
 
 /***/ }),
 
-/***/ 27:
+/***/ 29:
 /*!*************************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/timeFrom.js ***!
   \*************************************************************************************/
@@ -9078,7 +9290,7 @@ timeFormat;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 26));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 28));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /**
                                                                                                                                                                                                                                                                                           * 时间戳转为多久之前
@@ -9128,7 +9340,38 @@ timeFrom;exports.default = _default;
 
 /***/ }),
 
-/***/ 28:
+/***/ 3:
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 30:
 /*!******************************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/colorGradient.js ***!
   \******************************************************************************************/
@@ -9238,7 +9481,7 @@ function rgbToHex(rgb) {
 
 /***/ }),
 
-/***/ 29:
+/***/ 31:
 /*!*********************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/guid.js ***!
   \*********************************************************************************/
@@ -9290,38 +9533,7 @@ guid;exports.default = _default;
 
 /***/ }),
 
-/***/ 3:
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-
-/***/ 30:
+/***/ 32:
 /*!**********************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/color.js ***!
   \**********************************************************************************/
@@ -9367,7 +9579,7 @@ color;exports.default = _default;
 
 /***/ }),
 
-/***/ 31:
+/***/ 33:
 /*!**************************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/type2icon.js ***!
   \**************************************************************************************/
@@ -9413,7 +9625,7 @@ type2icon;exports.default = _default;
 
 /***/ }),
 
-/***/ 32:
+/***/ 34:
 /*!****************************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/randomArray.js ***!
   \****************************************************************************************/
@@ -9431,7 +9643,7 @@ randomArray;exports.default = _default;
 
 /***/ }),
 
-/***/ 33:
+/***/ 35:
 /*!*********************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/test.js ***!
   \*********************************************************************************/
@@ -9615,7 +9827,7 @@ function empty(value) {
 
 /***/ }),
 
-/***/ 34:
+/***/ 36:
 /*!***********************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/random.js ***!
   \***********************************************************************************/
@@ -9636,7 +9848,7 @@ random;exports.default = _default;
 
 /***/ }),
 
-/***/ 35:
+/***/ 37:
 /*!*********************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/trim.js ***!
   \*********************************************************************************/
@@ -9662,7 +9874,7 @@ trim;exports.default = _default;
 
 /***/ }),
 
-/***/ 36:
+/***/ 38:
 /*!**********************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/function/toast.js ***!
   \**********************************************************************************/
@@ -9683,7 +9895,89 @@ toast;exports.default = _default;
 
 /***/ }),
 
-/***/ 367:
+/***/ 39:
+/*!*********************************************************************************!*\
+  !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/config/config.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 此版本发布于2020-05-08
+var version = '1.2.3';var _default =
+
+{
+  v: version,
+  version: version };exports.default = _default;
+
+/***/ }),
+
+/***/ 4:
+/*!*************************************************************!*\
+  !*** C:/Users/windows/Documents/opticalShop_uni/pages.json ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 40:
+/*!*********************************************************************************!*\
+  !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/config/zIndex.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // uniapp在H5中各API的z-index值如下：
+/**
+ * actionsheet: 999
+ * modal: 999
+ * navigate: 998
+ * tabbar: 998
+ */var _default =
+
+{
+  toast: 1090,
+  noNetwork: 1080,
+  // popup包含popup，actionsheet，keyboard，picker的值
+  popup: 1075,
+  mask: 1070,
+  navbar: 980,
+  topTips: 975,
+  sticky: 970,
+  indexListSticky: 965 };exports.default = _default;
+
+/***/ }),
+
+/***/ 41:
+/*!*****************************************************************************!*\
+  !*** C:/Users/windows/Documents/opticalShop_uni/common/http.interceptor.js ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var config = {
+  baseUrl: 'https://hzdykj.boyaokj.cn/index.php/api/', // 请求的本域名
+  method: 'POST',
+  // 设置为json，返回后会对数据进行一次JSON.parse()
+  dataType: 'json',
+  showLoading: true, // 是否显示请求中的loading
+  loadingText: '加载中...', // 请求loading中的文字提示
+  loadingTime: 800, // 在此时间内，请求还没回来的话，就显示加载中动画，单位ms
+  originalData: false, // 是否在拦截器中返回服务端的原始数据
+  loadingMask: true // 展示loading的时候，是否给一个透明的蒙层，防止触摸穿透
+};var _default =
+
+{
+  config: config };exports.default = _default;
+
+/***/ }),
+
+/***/ 432:
 /*!*********************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/util/province.js ***!
   \*********************************************************************************/
@@ -9833,7 +10127,7 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 368:
+/***/ 433:
 /*!*****************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/util/city.js ***!
   \*****************************************************************************/
@@ -11347,7 +11641,7 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 369:
+/***/ 434:
 /*!*****************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/util/area.js ***!
   \*****************************************************************************/
@@ -23900,89 +24194,7 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 37:
-/*!*********************************************************************************!*\
-  !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/config/config.js ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 此版本发布于2020-05-08
-var version = '1.2.3';var _default =
-
-{
-  v: version,
-  version: version };exports.default = _default;
-
-/***/ }),
-
-/***/ 38:
-/*!*********************************************************************************!*\
-  !*** C:/Users/windows/Documents/opticalShop_uni/uview-ui/libs/config/zIndex.js ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // uniapp在H5中各API的z-index值如下：
-/**
- * actionsheet: 999
- * modal: 999
- * navigate: 998
- * tabbar: 998
- */var _default =
-
-{
-  toast: 1090,
-  noNetwork: 1080,
-  // popup包含popup，actionsheet，keyboard，picker的值
-  popup: 1075,
-  mask: 1070,
-  navbar: 980,
-  topTips: 975,
-  sticky: 970,
-  indexListSticky: 965 };exports.default = _default;
-
-/***/ }),
-
-/***/ 39:
-/*!*****************************************************************************!*\
-  !*** C:/Users/windows/Documents/opticalShop_uni/common/http.interceptor.js ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var config = {
-  baseUrl: 'https://hzdykj.boyaokj.cn/index.php/api/', // 请求的本域名
-  method: 'POST',
-  // 设置为json，返回后会对数据进行一次JSON.parse()
-  dataType: 'json',
-  showLoading: true, // 是否显示请求中的loading
-  loadingText: '加载中...', // 请求loading中的文字提示
-  loadingTime: 800, // 在此时间内，请求还没回来的话，就显示加载中动画，单位ms
-  originalData: false, // 是否在拦截器中返回服务端的原始数据
-  loadingMask: true // 展示loading的时候，是否给一个透明的蒙层，防止触摸穿透
-};var _default =
-
-{
-  config: config };exports.default = _default;
-
-/***/ }),
-
-/***/ 4:
-/*!*************************************************************!*\
-  !*** C:/Users/windows/Documents/opticalShop_uni/pages.json ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 46:
+/***/ 48:
 /*!******************************************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/js_sdk/junyi-h5-copy/junyi-h5-copy/junyi-h5-copy.js ***!
   \******************************************************************************************************/
@@ -24008,100 +24220,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   return result;
 
 }
-
-/***/ }),
-
-/***/ 47:
-/*!*****************************************************************!*\
-  !*** C:/Users/windows/Documents/opticalShop_uni/common/http.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var baseUrl = 'https://hzdykj.boyaokj.cn/index.php/api/';
-// const URL = 'https://hzdykj.boyaokj.cn/index.php/api/';
-var imgUrl = 'http://twenty-eight.top/static/';
-var httpRequest = function httpRequest(opts, data) {var loading = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-  if (loading) {
-    uni.showLoading();
-  }
-  var httpDefaultOpts = {
-    url: baseUrl + opts.url,
-    data: data,
-    method: opts.method,
-    header: opts.method == 'get' ? {
-      'X-Requested-With': 'XMLHttpRequest',
-      "Accept": "application/json",
-      "Content-Type": "application/json; charset=UTF-8" } :
-    {
-      'X-Requested-With': 'XMLHttpRequest',
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-
-    dataType: 'json' };
-
-  var promise = new Promise(function (resolve, reject) {
-    uni.request(httpDefaultOpts).then(
-    function (res) {
-      resolve(res[1]);
-    }).
-    catch(
-    function (response) {
-      reject(response);
-    });
-
-  });
-  if (loading) {
-    uni.hideLoading();
-  }
-  return promise;
-};
-//带Token请求
-var httpTokenRequest = function httpTokenRequest(opts, data) {
-  var token = "";
-  uni.getStorage({
-    key: 'token',
-    success: function success(ress) {
-      token = ress.data;
-    } });
-
-  //此token是登录成功后后台返回保存在storage中的
-  var httpDefaultOpts = {
-    url: baseUrl + opts.url,
-    data: data,
-    method: opts.method,
-    header: opts.method == 'get' ? {
-      'Token': token,
-      'X-Requested-With': 'XMLHttpRequest',
-      "Accept": "application/json",
-      "Content-Type": "application/json; charset=UTF-8" } :
-    {
-      'Token': token,
-      'X-Requested-With': 'XMLHttpRequest',
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-
-    dataType: 'json' };
-
-  var promise = new Promise(function (resolve, reject) {
-    uni.request(httpDefaultOpts).then(
-    function (res) {
-      resolve(res[1]);
-    }).
-    catch(
-    function (response) {
-      reject(response);
-    });
-
-  });
-  return promise;
-};var _default =
-
-{
-  baseUrl: baseUrl,
-  httpRequest: httpRequest,
-  httpTokenRequest: httpTokenRequest,
-  imgUrl: imgUrl };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
@@ -24992,38 +25110,7 @@ main();
 
 /***/ }),
 
-/***/ 564:
-/*!*****************************************************************!*\
-  !*** C:/Users/windows/Documents/opticalShop_uni/common/util.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // util.js
-// 微信公众号授权
-function wxAuthorize() {
-  var link = window.location.href;
-  var params = this._getUrlParams(link); // 地址解析
-  console.log("执行微信授权");
-  // 已经授权登录过的就不用再授权了
-  if (store.state.token) return;
-  // 如果拿到code，调用授权接口，没有拿到就跳转微信授权链接获取
-  if (params.code) {
-    api.wxAuth(params.code); // 调用后台接口，授权
-  } else {
-    var appid = 'xxx';
-    var uri = encodeURIComponent(link);
-    var authURL =
-    'https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${uri}&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect';
-    window.location.href = authURL;
-  }
-}var _default =
-wxAuthorize;exports.default = _default;
-
-/***/ }),
-
-/***/ 579:
+/***/ 507:
 /*!*******************************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/components/zzx-calendar/generateDates.js ***!
   \*******************************************************************************************/
@@ -25175,7 +25262,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 
 /***/ }),
 
-/***/ 66:
+/***/ 67:
 /*!**************************************************************************!*\
   !*** C:/Users/windows/Documents/opticalShop_uni/common/classify.data.js ***!
   \**************************************************************************/
@@ -26277,7 +26364,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "首页", "navigationStyle": "custom", "usingComponents": { "uni-swiper-dot": "/components/uni-swiper-dot/uni-swiper-dot" }, "usingAutoImportComponents": { "u-swiper": "/uview-ui/components/u-swiper/u-swiper", "u-icon": "/uview-ui/components/u-icon/u-icon", "uni-swiper-dot": "/components/uni-swiper-dot/uni-swiper-dot", "u-sticky": "/uview-ui/components/u-sticky/u-sticky", "u-tabs": "/uview-ui/components/u-tabs/u-tabs", "u-waterfall": "/uview-ui/components/u-waterfall/u-waterfall", "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore", "u-popup": "/uview-ui/components/u-popup/u-popup", "u-button": "/uview-ui/components/u-button/u-button", "u-toast": "/uview-ui/components/u-toast/u-toast" } }, "pages/my/my": { "navigationBarTitleText": "我的", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-badge": "/uview-ui/components/u-badge/u-badge", "u-icon": "/uview-ui/components/u-icon/u-icon", "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar", "u-tabs-swiper": "/uview-ui/components/u-tabs-swiper/u-tabs-swiper" } }, "pages/classify/classify": { "navigationBarTitleText": "分类", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-search": "/uview-ui/components/u-search/u-search" } }, "pages/cart/cart": { "navigationBarTitleText": "购物车", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar", "u-modal": "/uview-ui/components/u-modal/u-modal", "u-checkbox-group": "/uview-ui/components/u-checkbox-group/u-checkbox-group", "u-checkbox": "/uview-ui/components/u-checkbox/u-checkbox", "u-number-box": "/uview-ui/components/u-number-box/u-number-box" } }, "pages/goods/goods": { "navigationBarTitleText": "全部商品", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-search": "/uview-ui/components/u-search/u-search", "u-popup": "/uview-ui/components/u-popup/u-popup", "u-tag": "/uview-ui/components/u-tag/u-tag" } }, "pages/my/userInfo": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-picker": "/uview-ui/components/u-picker/u-picker" } }, "pages/my/agent": { "navigationBarTitleText": "代理商", "usingComponents": {}, "usingAutoImportComponents": { "u-search": "/uview-ui/components/u-search/u-search", "u-tabs": "/uview-ui/components/u-tabs/u-tabs", "u-line-progress": "/uview-ui/components/u-line-progress/u-line-progress", "u-icon": "/uview-ui/components/u-icon/u-icon" } }, "pages/my/agentLevel": { "navigationBarTitleText": "代理等级", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/order/order": { "navigationBarTitleText": "代理订单", "usingComponents": {}, "usingAutoImportComponents": { "u-tabs": "/uview-ui/components/u-tabs/u-tabs", "u-search": "/uview-ui/components/u-search/u-search", "u-tag": "/uview-ui/components/u-tag/u-tag" } }, "pages/distribution/distributionGoods": { "navigationBarTitleText": "分销产品", "usingComponents": {}, "usingAutoImportComponents": { "u-search": "/uview-ui/components/u-search/u-search", "u-tabs": "/uview-ui/components/u-tabs/u-tabs" } }, "pages/distribution/distributionRecommend": { "navigationBarTitleText": "分销说明", "usingComponents": {}, "usingAutoImportComponents": { "u-radio-group": "/uview-ui/components/u-radio-group/u-radio-group", "u-radio": "/uview-ui/components/u-radio/u-radio" } }, "pages/brand/brandList": { "navigationBarTitleText": "所有品牌", "usingComponents": {}, "usingAutoImportComponents": { "u-search": "/uview-ui/components/u-search/u-search", "u-tabs": "/uview-ui/components/u-tabs/u-tabs", "u-index-list": "/uview-ui/components/u-index-list/u-index-list", "u-index-anchor": "/uview-ui/components/u-index-anchor/u-index-anchor", "u-toast": "/uview-ui/components/u-toast/u-toast" } }, "pages/my/myCollect": { "navigationBarTitleText": "我的关注", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-tabs": "/uview-ui/components/u-tabs/u-tabs", "u-checkbox-group": "/uview-ui/components/u-checkbox-group/u-checkbox-group", "u-checkbox": "/uview-ui/components/u-checkbox/u-checkbox" } }, "pages/brand/brandInfo": { "navigationBarTitleText": "品牌", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-read-more": "/uview-ui/components/u-read-more/u-read-more", "u-tabs": "/uview-ui/components/u-tabs/u-tabs" } }, "pages/goods/goodInfo": { "navigationBarTitleText": "详情", "usingComponents": {}, "usingAutoImportComponents": { "u-swiper": "/uview-ui/components/u-swiper/u-swiper", "u-icon": "/uview-ui/components/u-icon/u-icon", "u-tabs": "/uview-ui/components/u-tabs/u-tabs", "u-popup": "/uview-ui/components/u-popup/u-popup", "u-button": "/uview-ui/components/u-button/u-button" } }, "pages/brand/choicenessBrand": { "navigationBarTitleText": "精选品牌", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-swiper": "/uview-ui/components/u-swiper/u-swiper", "u-toast": "/uview-ui/components/u-toast/u-toast" } }, "pages/finance/financeCenter": { "navigationBarTitleText": "财务中心", "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-button": "/uview-ui/components/u-button/u-button" } }, "pages/shop/shopSetting": { "navigationBarTitleText": "店铺设置", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-toast": "/uview-ui/components/u-toast/u-toast" } }, "pages/my/setting": { "navigationBarTitleText": "设置", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon" } }, "pages/my/addressList": { "navigationBarTitleText": "收货地址", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon" } }, "pages/my/editAddress": { "navigationBarTitleText": "新增地址", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-switch": "/uview-ui/components/u-switch/u-switch", "u-button": "/uview-ui/components/u-button/u-button", "u-picker": "/uview-ui/components/u-picker/u-picker" } }, "pages/member/memberInvitationCode": { "navigationBarTitleText": "会员邀请码", "navigationStyle": "custom", "usingComponents": { "special-banner": "/components/EtherealWheat-banner/specialBanner" }, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon" } }, "pages/goods/flashSale": { "navigationBarTitleText": "限时抢购", "usingComponents": {}, "usingAutoImportComponents": { "u-tabs": "/uview-ui/components/u-tabs/u-tabs" } }, "pages/my/thresholdSetting": { "navigationBarTitleText": "门槛设置", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/shop/thresholdSetting": { "navigationBarTitleText": "门槛设置", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-checkbox-group": "/uview-ui/components/u-checkbox-group/u-checkbox-group", "u-checkbox": "/uview-ui/components/u-checkbox/u-checkbox", "u-button": "/uview-ui/components/u-button/u-button" } }, "pages/my/accountSecuritySetting": { "navigationBarTitleText": "账号安全", "usingComponents": {}, "usingAutoImportComponents": { "u-icon": "/uview-ui/components/u-icon/u-icon", "u-toast": "/uview-ui/components/u-toast/u-toast" } }, "pages/my/emailAuthentication": { "navigationBarTitleText": "邮箱认证", "usingComponents": {}, "usingAutoImportComponents": { "u-button": "/uview-ui/components/u-button/u-button", "u-toast": "/uview-ui/components/u-toast/u-toast", "u-verification-code": "/uview-ui/components/u-verification-code/u-verification-code" } }, "pages/my/footprint": { "navigationBarTitleText": "我的足迹", "navigationStyle": "custom", "usingComponents": { "zzx-calendar": "/components/zzx-calendar/zzx-calendar" }, "usingAutoImportComponents": { "zzx-calendar": "/components/zzx-calendar/zzx-calendar", "u-icon": "/uview-ui/components/u-icon/u-icon", "u-toast": "/uview-ui/components/u-toast/u-toast" } } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "美瞳", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "首页", "navigationStyle": "custom" }, "pages/my/my": { "navigationBarTitleText": "我的", "navigationStyle": "custom" }, "pages/classify/classify": { "navigationBarTitleText": "分类", "navigationStyle": "custom" }, "pages/cart/cart": { "navigationBarTitleText": "购物车", "navigationStyle": "custom" }, "pages/goods/goods": { "navigationBarTitleText": "全部商品", "navigationStyle": "custom" }, "pages/my/userInfo": { "navigationStyle": "custom" }, "pages/my/agent": { "navigationBarTitleText": "代理商" }, "pages/my/agentLevel": { "navigationBarTitleText": "代理等级" }, "pages/order/order": { "navigationBarTitleText": "代理订单" }, "pages/distribution/distributionGoods": { "navigationBarTitleText": "分销产品" }, "pages/distribution/distributionRecommend": { "navigationBarTitleText": "分销说明" }, "pages/brand/brandList": { "navigationBarTitleText": "所有品牌" }, "pages/my/myCollect": { "navigationBarTitleText": "我的关注", "navigationStyle": "custom" }, "pages/brand/brandInfo": { "navigationBarTitleText": "品牌", "navigationStyle": "custom" }, "pages/goods/goodInfo": { "navigationBarTitleText": "详情" }, "pages/brand/choicenessBrand": { "navigationBarTitleText": "精选品牌" }, "pages/finance/financeCenter": { "navigationBarTitleText": "财务中心", "navigationStyle": "custom" }, "pages/shop/shopSetting": { "navigationBarTitleText": "店铺设置" }, "pages/my/setting": { "navigationBarTitleText": "设置" }, "pages/my/addressList": { "navigationBarTitleText": "收货地址" }, "pages/my/editAddress": { "navigationBarTitleText": "新增地址" }, "pages/member/memberInvitationCode": { "navigationBarTitleText": "会员邀请码", "navigationStyle": "custom" }, "pages/goods/flashSale": { "navigationBarTitleText": "限时抢购" }, "pages/shop/thresholdSetting": { "navigationBarTitleText": "门槛设置" }, "pages/my/accountSecuritySetting": { "navigationBarTitleText": "账号安全" }, "pages/my/emailAuthentication": { "navigationBarTitleText": "邮箱认证" }, "pages/my/footprint": { "navigationBarTitleText": "我的足迹", "navigationStyle": "custom" }, "pages/order/orderInfo": { "navigationBarTitleText": "订单详情" }, "pages/shop/shopInfo": { "navigationBarTitleText": "店铺详情", "navigationStyle": "custom" }, "pages/my/distributionInviteCode": { "navigationBarTitleText": "分销邀请码" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "美瞳", "navigationBarBackgroundColor": "#fff", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 

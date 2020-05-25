@@ -11,6 +11,8 @@
     "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
     "u-popup": "/uview-ui/components/u-popup/u-popup",
     "u-button": "/uview-ui/components/u-button/u-button",
-    "u-toast": "/uview-ui/components/u-toast/u-toast"
+    "u-toast": "/uview-ui/components/u-toast/u-toast",
+    "index-u-waterfall-left": "/pages/index/index-u-waterfall-left",
+    "index-u-waterfall-right": "/pages/index/index-u-waterfall-right"
   }
 }

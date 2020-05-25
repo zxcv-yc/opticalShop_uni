@@ -36,7 +36,7 @@
 			</view>
 		</u-checkbox-group>
 		<view class="bottom_btn" v-if="edit">
-			<u-button shape="circle" type="error" :ripple="true" :loading="btmnLoading">乌啼</u-button>
+			<u-button shape="circle" type="error" :ripple="true" :loading="btmnLoading">删除</u-button>
 		</view>
 		<view>
 			<u-toast ref="uToast" />

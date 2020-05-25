@@ -9,7 +9,7 @@
 			 placeholder="请输入您要搜索的内容" @search="searchStart" bg-color="#fff"></u-search>
 		</view>
 		<view class="order_list">
-			<view class="order_item" v-for="(item,index) in tabList" :key="index">
+			<view class="order_item" v-for="(item,index) in tabList" :key="index" @click="goOrderInfo">
 				<view class="jus-spB u-p-30">
 					<view class="jus-start">
 						<view class="u-font-28">
@@ -132,6 +132,11 @@
 				}, error => {
 					console.log(error);
 					uni.hideLoading()
+				})
+			},
+			goOrderInfo:function(){
+				uni.navigateTo({
+					url:'./orderInfo'
 				})
 			},
 			tabChange: function(e) {

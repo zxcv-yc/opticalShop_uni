@@ -194,7 +194,8 @@
 							</view>
 						</view>
 						<view class="jus-spB">
-							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 ">
+							
+							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 " @click="goPage('./distributionInviteCode')">
 								<image :src="imgUrl+'images/my/img9.png'" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
 									分销邀请码

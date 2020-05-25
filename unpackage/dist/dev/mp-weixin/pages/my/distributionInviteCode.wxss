@@ -1,0 +1,9 @@
+
+page {
+	background-color: #EDEDED;
+}
+.top_box {
+	padding: 20rpx 30rpx;
+	/* box-shadow: 4upx 0 10upx rgba(100, 99, 99, .45); */
+}
+

@@ -110,10 +110,10 @@
 					<view class="right_bottom_box border_radius_10 jus-spB">
 						<view class="u-text-left">
 							<view class="u-font-30 u-m-l-30 u-m-b-15">
-								限时抢购
+								单品爆款
 							</view>
 							<view class="text-tips u-font-22 u-p-l-30 u-p-b-40">
-								今日优选
+								必买订单
 							</view>
 						</view>
 						<image :src="imgUrl+'images/copy/zxc.png'" mode="aspectFill" style="height: 124upx;width: 124upx;" class="u-m-r-30 u-m-t-30"></image>
@@ -276,6 +276,7 @@
 	import uniSwiperDot from "@/components/uni-swiper-dot/uni-swiper-dot.vue"
 	import h5Copy from '../../js_sdk/junyi-h5-copy/junyi-h5-copy/junyi-h5-copy.js'
 	import http from '../../common/http.js'
+
 	export default {
 		components: {
 			uniSwiperDot,
@@ -466,7 +467,21 @@
 		},
 		onLoad() {
 			this.allRequest()
-			console.log(this.bgImg)
+			// 获取URL 上code
+			// const code = this.getUrlParam('code')
+			// alert(code)
+			// // 判断是否存在code
+			// if (code == null || code == '') {
+			// 	// 重新获取code
+			// 	console.log(code)
+
+			// 	// window.location.href = wx_url
+			// } else {
+			// 	// 发送code         
+			// 	console.log('发送code,' + code)
+			// 	// this.postCode(code)
+			// }
+
 		},
 		onPageScroll(e) {
 			if (e.scrollTop > this.listTop) {
@@ -481,7 +496,7 @@
 
 			const query = uni.createSelectorQuery().in(this);
 			query.select('.goods_list_box').boundingClientRect(data => {
-				console.log(data);
+				// console.log(data);
 				this.listTop = data.top
 			}).exec();
 		},
@@ -498,6 +513,40 @@
 			allRequest: function() {
 				this.getMenu()
 				this.addRandomData()
+				this.aabb()
+			},
+			// 解析URL 参数
+			getUrlParam(name) {
+				let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
+				let r = window.location.search.substr(1).match(reg)
+				if (r != null) {
+					return unescape(r[2])
+				}
+				return null
+			},
+			// 发送code 获取信息
+			// postCode(code) {
+			// 	uni.request({
+			// 		url: 'https://www.example.com/request', //发送code给后台。
+			// 		success: (res) => {
+			// 			//res里面包含用户信息  openid等
+			// 		}
+			// 	});
+			// },
+			aabb: function() {
+				console.log('执行aabb')
+				uni.showLoading({
+					title: '加载中'
+				})
+				http.ajax({
+					method: 'POST',
+					url: 'Test',
+					data: {},
+					success: function(res) {
+						console.log(res)
+						uni.hideLoading()
+					}
+				})
 			},
 			getMenu: function() {
 				let menu_result = []
@@ -652,9 +701,9 @@
 					param: param
 				})
 			},
-			goFlashSale:function(){
+			goFlashSale: function() {
 				uni.navigateTo({
-					url:'../goods/flashSale'
+					url: '../goods/flashSale'
 				})
 			}
 		}

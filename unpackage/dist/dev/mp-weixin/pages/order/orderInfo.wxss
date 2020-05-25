@@ -1,0 +1,40 @@
+
+page {
+	background-color: #EDEDED;
+}
+.unpaid_bg_box {
+	width: 100%;
+	height: 220rpx;
+	background-size: 100% 100%;
+}
+.address_info {
+	width: calc(100% - 60rpx);
+}
+.text-787878 {
+	color: #787878;
+}
+.order_info {
+	background-color: #FBFBFB;
+	padding: 20rpx 30rpx;
+}
+.input-placeholder {
+	font-size: 26rpx;
+	color: #787878;
+	line-height: 100%;
+}
+.order_info_text_box {
+	width: calc(100% - 170rpx);
+	height: 140rpx;
+}
+.text-F25050 {
+	color: #F25050;
+}
+.bottom_bar {
+	padding: 20rpx 30rpx;
+	background-color: #fff;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+

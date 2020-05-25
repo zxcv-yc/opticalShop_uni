@@ -106,7 +106,7 @@
 						SWEETY EYE
 					</view>
 				</view>
-				<view class="go_shop_btn border_radius_999">
+				<view class="go_shop_btn border_radius_999" @click="goShop">
 					进店逛逛
 				</view>
 			</view>
@@ -343,6 +343,11 @@
 			goIndex: function() {
 				uni.switchTab({
 					url: '../index/index'
+				})
+			},
+			goShop:function(){
+				uni.navigateTo({
+					url:'../shop/shopInfo'
 				})
 			}
 		}

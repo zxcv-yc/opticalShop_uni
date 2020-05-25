@@ -1,11 +1,10 @@
 <script>
-	import util from './common/util.js'
-	
+	import {util} from './common/util.js';
+	import http from './common/http.js'
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
-			console.log(util)
-			util.wxAuthorize();
+			// util.wxAuthorize('wx259f5479e6a12260')
 		},
 		onShow: function() {
 			console.log('App Show')

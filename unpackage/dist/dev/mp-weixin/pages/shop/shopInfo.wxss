@@ -1,0 +1,50 @@
+
+page {
+	background-color: #EDEDED;
+}
+.bgc_ed {
+	background-color: #EDEDED;
+}
+.hei_100 {
+	height: 100%;
+}
+.top_box {
+	width: 100%;
+	height: 400rpx;
+	background-size: 100% 100%;
+}
+.shop_info_text_box {
+	margin-top: -70rpx;
+	z-index: -1;
+}
+.screen_bar_box {
+	padding: 30rpx 40rpx;
+	z-index: 1077;
+	position: relative;
+}
+.screen_bar_item_a {
+	color: #667E88;
+}
+.text-FF2B22 {
+	color: #FF2B22;
+}
+.screen_modal {
+	padding: 80rpx 30rpx;
+}
+.goods_list {
+	padding: 24rpx;
+}
+.goods_item {
+	width: 340rpx;
+	background-color: #fff;
+	overflow: hidden;
+	border-radius: 20rpx;
+	margin-bottom: 20rpx;
+}
+.share_modal_btn{
+	color: #FB484F;
+	line-height: 96rpx;
+	background-color: #F6F6F0;
+	margin-top: 60rpx;
+}
+
