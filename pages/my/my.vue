@@ -296,6 +296,7 @@
 						name: '工作台'
 					}
 				],
+
 				current: 0,
 				swiperCurrent: 0,
 				tabsHeight: 0,
@@ -303,10 +304,27 @@
 					"关于 xxxx产品完税订单更改地址更新说明 通知",
 					"关于 xxxx产品完税订单更改地址更新说明 通知"
 				],
+				cartList: [{
+					checked: true,
+					total: '3',
+					marketprice: '99.80'
+				}, {
+					checked: false,
+					total: '3',
+					marketprice: '99.80'
+				}, {
+					checked: true,
+					total: '2',
+					marketprice: '30'
+				}, {
+					checked: true,
+					total: '4',
+					marketprice: '19.90'
+				}]
 			}
 		},
 		onLoad: function() {
-
+			console.log(this.getTotalPrice())
 			this.allRequest()
 		},
 		onShow: function() {
@@ -321,7 +339,7 @@
 		},
 		methods: {
 			allRequest: function() {
-				this.aaee()
+				// this.aaee()
 			},
 			aaee: function() {
 				console.log('aaee')
@@ -394,7 +412,22 @@
 				})
 			},
 
+			//取选中的对象
+			getTotalPrice: function() {
+				let _this = this
+				// let t = _this.cartList.filter(item => {
+				// 	return item.checked
+				// }).map(function(i) {
+				// 	return _this.$fun.accMul(i.total, i.marketprice)
+				// }).reduce(function(preValue, n) {
+				// 	return _this.$fun.accAdd(preValue, n)
+				// }, 0)
 
+				let t = _this.cartList.filter(item => item.checked).map(i => _this.$fun.accMul(i.total, i.marketprice)).reduce((
+					pre, n) => _this.$fun.accAdd(pre, n), 0)
+
+				return t.toFixed(2)
+			},
 
 			// tab栏切换
 			change(index) {

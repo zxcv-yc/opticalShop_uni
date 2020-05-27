@@ -154,11 +154,29 @@
 					"关于 xxxx产品完税订单更改地址更新说明 通知"
 				],
 				checkImgUrl: http.imgUrl + 'images/check.png',
-				cartList: []
+				// cartList: []
+				cartList: [{
+					checked: true,
+					total: '3',
+					marketprice: '99.80'
+				}, {
+					checked: false,
+					total: '3',
+					marketprice: '99.80'
+				}, {
+					checked: true,
+					total: '2',
+					marketprice: '30'
+				}, {
+					checked: true,
+					total: '4',
+					marketprice: '19.90'
+				}]
 			}
 		},
 		onLoad: function() {
-			console.log(this.$fun.accMul(3, 2.00))
+			// console.log(this.getTotalPrice())
+			console.log(this.$fun.accMul('3', '2.00'))
 			this.userInfo = uni.getStorageSync('userInfo')
 			this.allRequest()
 		},
@@ -205,7 +223,7 @@
 			checkboxGroupChange: function(e) {
 				console.log(e)
 				console.log(this.cartList)
-				console.log(this.getCheckedArr())
+				console.log(this.getTotalPrice())
 			},
 			checkboxChange: function(e) {
 				// console.log(e)
@@ -225,12 +243,17 @@
 				console.log('点击')
 				this.checkImgUrl = this.imgUrl + 'images/check_a.png'
 			},
+
 			//取选中的对象
-			getCheckedArr: function() {
-				let checkArr = this.cartList.filter(item => {
+			getTotalPrice: function() {
+				let t = this.cartList.filter(item => {
 					return item.checked
-				})
-				return checkArr
+				}).map(function(i) {
+					return this.$fun.accMul(i.total, i.marketprice)
+				}).reduce(function(preValue, n) {
+					return this.$fun.accAdd(preValue, n)
+				}, 0)
+				return t
 			}
 		}
 	}
