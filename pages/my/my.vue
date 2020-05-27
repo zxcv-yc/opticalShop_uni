@@ -423,10 +423,10 @@
 				// 	return _this.$fun.accAdd(preValue, n)
 				// }, 0)
 
-				let t = _this.cartList.filter(item => item.checked).map(i => _this.$fun.accMul(i.total, i.marketprice)).reduce((
-					pre, n) => _this.$fun.accAdd(pre, n), 0)
+				return  _this.cartList.filter(item => item.checked).map(i => _this.$fun.accMul(i.total, i.marketprice)).reduce((
+					pre, n) => _this.$fun.accAdd(pre, n), 0).toFixed(2)
 
-				return t.toFixed(2)
+				 
 			},
 
 			// tab栏切换

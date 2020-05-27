@@ -1,5 +1,13 @@
 export default {
-
+	//全局showToast
+	showToast: function(_this, title, type, url, param) {
+		_this.$refs.uToast.show({
+			title: title,
+			type: type,
+			url: url,
+			param: param
+		})
+	},
 
 	accAdd: function(num1, num2) { // 两个浮点数求和
 		var r1, r2, m;

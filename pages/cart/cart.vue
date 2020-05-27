@@ -154,6 +154,8 @@
 					"关于 xxxx产品完税订单更改地址更新说明 通知"
 				],
 				checkImgUrl: http.imgUrl + 'images/check.png',
+				totalPrice: null,
+				totalGoodsLength:0,
 				// cartList: []
 				cartList: [{
 					checked: true,
@@ -224,6 +226,8 @@
 				console.log(e)
 				console.log(this.cartList)
 				console.log(this.getTotalPrice())
+				this.totalGoodsLength = e.length
+				this.totalPrice = this.getTotalPrice()
 			},
 			checkboxChange: function(e) {
 				// console.log(e)
@@ -244,16 +248,10 @@
 				this.checkImgUrl = this.imgUrl + 'images/check_a.png'
 			},
 
-			//取选中的对象
+			//计算总价 1过滤2单个商品总价3总价
 			getTotalPrice: function() {
-				let t = this.cartList.filter(item => {
-					return item.checked
-				}).map(function(i) {
-					return this.$fun.accMul(i.total, i.marketprice)
-				}).reduce(function(preValue, n) {
-					return this.$fun.accAdd(preValue, n)
-				}, 0)
-				return t
+				return _this.cartList.filter(item => item.checked).map(i => _this.$fun.accMul(i.total, i.marketprice)).reduce((
+					pre, n) => _this.$fun.accAdd(pre, n), 0).toFixed(2)
 			}
 		}
 	}
