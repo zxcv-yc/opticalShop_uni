@@ -1,10 +1,17 @@
 <script>
-	import {util} from './common/util.js';
-	import http from './common/http.js'
+	import {
+		util
+	} from './common/util.js';
+	import http from './common/http.js';
+
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
-			// util.wxAuthorize('wx259f5479e6a12260')
+			let userInfo = uni.getStorageSync('userInfo')
+			console.log(userInfo)
+			if (!userInfo) {
+				util.wxAuthorize()
+			}
 		},
 		onShow: function() {
 			console.log('App Show')

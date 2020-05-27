@@ -172,7 +172,15 @@
 				"navigationBarTitleText": "分销邀请码"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/index/test",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/order/afterSale",
+            "style" : {"navigationBarTitleText": "申请售后"}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "美瞳",

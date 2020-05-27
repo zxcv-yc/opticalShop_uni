@@ -23,12 +23,13 @@
 							</view>
 							<view class="item-container">
 								<view class="thumb-box" v-for="(item1, index1) in item.foods" :key="index1">
-									<image class="item-menu-image" :src="item1.icon" mode=""></image>
+									<image class="item-menu-image border_radius_10" :src="imgUrl+item1.thumb" mode="aspectFill" style="width: 120upx;height: 120upx;"></image>
 									<view class="item-menu-name">{{item1.name}}</view>
 								</view>
 							</view>
 						</view>
 					</view>
+
 				</scroll-view>
 			</view>
 		</view>
@@ -72,25 +73,26 @@
 		},
 		methods: {
 			allRequest: function() {
-
+				this.getGoodsCate()
 			},
-			aa: function() {
+			getGoodsCate: function() {
 				uni.showLoading({
 					title: '加载中'
 				})
-				let opts = {
-					url: '',
-					method: 'post'
-				};
-				let param = {
-					city_id: '370700',
-				};
-				http.httpTokenRequest(opts, param).then(res => {
-					console.log(res.data);
-					uni.hideLoading()
-				}, error => {
-					console.log(error);
-					uni.hideLoading()
+				let _this = this
+				http.ajax({
+					method: 'POST',
+					url: 'GetGoodsCate',
+					data: {},
+					success: function(res) {
+						let r = JSON.parse(res)
+						if (r.errno == 0) {
+							let data = JSON.parse(res).data
+							_this.tabbar = data
+							console.log(data)
+						}
+						uni.hideLoading()
+					}
 				})
 			},
 			//搜索触发
@@ -313,6 +315,7 @@
 	.item-menu-name {
 		font-weight: normal;
 		font-size: 24rpx;
+		margin-top: 20upx;
 		color: $u-main-color;
 	}
 

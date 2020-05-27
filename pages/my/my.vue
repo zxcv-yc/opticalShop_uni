@@ -109,7 +109,7 @@
 									我的关注
 								</view>
 							</view>
-							<view class="order_icon_item" @click="goPage('./footprint')"> 
+							<view class="order_icon_item" @click="goPage('./footprint')">
 								<image :src="imgUrl+'images/my/gerenzhongxin10.png'" mode="aspectFill" class="order_icon_img"></image>
 								<view class="u-font-24 text-9F9F9F">
 									我的足迹
@@ -194,7 +194,7 @@
 							</view>
 						</view>
 						<view class="jus-spB">
-							
+
 							<view class="my_center_item_item jus-center u-p-t-40 u-p-b-40 " @click="goPage('./distributionInviteCode')">
 								<image :src="imgUrl+'images/my/img9.png'" mode="widthFix" style="width: 36upx;"></image>
 								<view class="text-main u-m-l-15 u-font-26">
@@ -282,6 +282,7 @@
 
 <script>
 	import http from '../../common/http.js'
+	import $ from "../../common/jquery-3.4.1.min.js"
 	export default {
 		data() {
 			return {
@@ -320,7 +321,43 @@
 		},
 		methods: {
 			allRequest: function() {
+				this.aaee()
+			},
+			aaee: function() {
+				console.log('aaee')
+				$.ajax({
+					url: 'http://meitong.boyaokj.cn/app/index.php',
+					type: 'POST',
+					data: {
+						"i": 2,
+						'm': 'ewei_shopv2',
+						't': 0,
+						'a': 'wxapp',
+						'do': 'GetJssdkConfig',
+						'c': 'entry',
+						// url: location.href.split('#')[0]
+					},
+					success: function(ress) {
+						console.log(ress);
+						console.log(JSON.parse(ress));
 
+					}
+				})
+				// uni.request({
+				// 	url: 'http://meitong.boyaokj.cn/app/index.php?i=2&t=0&c=entry&from=wxapp&a=wxapp&do=GetJssdkConfig&m=ewei_shopv2', 
+				// 	method:'post',
+				// 	data: {
+				// 		// text: 'uni.request'
+				// 	},
+				// 	header: {
+				// 		'Content-Type': 'application/x-www-form-urlencoded'
+				// 	},
+				// 	success: (res) => {
+
+				// 		console.log(res);
+
+				// 	}
+				// });
 			},
 			aa: function() {
 				uni.showLoading({
@@ -351,14 +388,14 @@
 				this.eye = this.eye == 'eye' ? 'eye-fill' : 'eye'
 				console.log(this.eye)
 			},
-			goPage:function(e){
+			goPage: function(e) {
 				uni.navigateTo({
 					url: e
 				})
 			},
-	
-	
-		
+
+
+
 			// tab栏切换
 			change(index) {
 				this.swiperCurrent = index;

@@ -1,0 +1,1 @@
+<view class="container"><wfalls-flow class="vue-ref" vue-id="88d276c4-1" list="{{list}}" listHeadUrl="{{imgUrl+'images/copy/list_head.png'}}" data-ref="wfalls" data-event-opts="{{[['^listHeadClick',[['goqqq']]],['^clickItem',[['goGoodsInfo']]]]}}" bind:listHeadClick="__e" bind:clickItem="__e" bind:__l="__l"></wfalls-flow></view>

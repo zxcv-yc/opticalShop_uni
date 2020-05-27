@@ -100,13 +100,24 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var _util = __webpack_require__(/*! ./common/util.js */ 12);
+
+
 var _http = _interopRequireDefault(__webpack_require__(/*! ./common/http.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   onLaunch: function onLaunch() {
     console.log('App Launch');
-    // util.wxAuthorize('wx259f5479e6a12260')
+    var userInfo = uni.getStorageSync('userInfo');
+    console.log(userInfo);
+    if (!userInfo) {
+      _util.util.wxAuthorize();
+    }
+
+
+
+
+
   },
   onShow: function onShow() {
     console.log('App Show');
@@ -114,6 +125,7 @@ var _http = _interopRequireDefault(__webpack_require__(/*! ./common/http.js */ 1
   onHide: function onHide() {
     console.log('App Hide');
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 12 */,

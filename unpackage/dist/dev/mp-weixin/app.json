@@ -29,7 +29,8 @@
     "pages/my/footprint",
     "pages/order/orderInfo",
     "pages/shop/shopInfo",
-    "pages/my/distributionInviteCode"
+    "pages/my/distributionInviteCode",
+    "pages/index/test"
   ],
   "subPackages": [],
   "window": {
@@ -78,5 +79,5 @@
   },
   "permission": {},
   "usingComponents": {},
-  "sitemapLocation": "sitemap20.json"
+  "sitemapLocation": "sitemap14.json"
 }

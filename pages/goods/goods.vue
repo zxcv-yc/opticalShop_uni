@@ -6,7 +6,8 @@
 				 placeholder="搜索商家或商品名称" @search="searchStart"></u-search>
 			</view>
 		</view>
-		<view class="jus-spB screen_bar_box ">
+		<!-- <u-sticky h5-nav-height="0" bg-color="#fff"> -->
+		<view class="jus-spB screen_bar_box  bgc_fff">
 			<view class="screen_bar_item" :class="screenIndex==1?'screen_bar_item_a':''" @click="screenToggle(1)">
 				综合
 			</view>
@@ -16,25 +17,36 @@
 			<view class="screen_bar_item" :class="screenIndex==3?'screen_bar_item_a':''" @click="screenToggle(3)">
 				销量
 			</view>
-			<view class="screen_bar_item" :class="screenIndex==4?'screen_bar_item_a':''" @click="screenToggle(4)">
-				价格
+			<view class="screen_bar_item jus-start" :class="screenIndex==4?'screen_bar_item_a':''" @click="screenToggle(4)">
+				<view class="">
+					价格
+				</view>
+				<view class="u-m-l-15">
+					<view class="" style="">
+						<u-icon name="arrow-up-fill" size="16" :color="price==2?'#FF514E':'#999'"></u-icon>
+					</view>
+					<view class="" style="margin-top: -20upx;">
+						<u-icon name="arrow-down-fill" size="16" :color="price==1?'#FF514E':'#999'"></u-icon>
+					</view>
+				</view>
 			</view>
 			<view class="screen_bar_item" :class="screenIndex==5?'screen_bar_item_a':''" @click="screenToggle(5)">
 				<image :src="imgUrl+'images/list.png'" mode="widthFix" style="width: 30upx;"></image>
 			</view>
-			<u-popup v-model="screenModalShow" mode="right" close-icon-pos="bottom-right" :closeable="true">
-				<view class="screen_modal">筛选条件</view>
-			</u-popup>
 		</view>
+		<!-- </u-sticky> -->
+		<u-popup v-model="screenModalShow" mode="right" close-icon-pos="bottom-right" :closeable="true">
+			<view class="screen_modal">筛选条件</view>
+		</u-popup>
 		<view class="goods_list">
-			<view class="goods_item jus-spB u-border-bottom">
-				<image :src="imgUrl+'images/copy/cdjh.png'" mode="aspectFill"></image>
+			<view class="goods_item jus-spB u-border-bottom" v-for="(item,index) in goodsList" :key="index">
+				<image :src="imgUrl+item.thumb" mode="aspectFill"></image>
 				<view class="goods_item_info jus-spB-col">
 					<view class="u-font-28 u-line-2">
-						日本美瞳日抛Flanmy隐形眼镜近视桥本环奈自然大直径
+						{{item.title}}
 					</view>
 					<view class="u-font-22" style="color: #B8B8B8;">
-						99/副,158/2副,全新震撼上市
+						{{item.subtitle}}
 					</view>
 					<view class="">
 						<u-tag text="IVHOICE" type="" size="mini" color="#A79A86" bg-color="#F7F6DD" />
@@ -42,7 +54,7 @@
 					<view class="jus-spB">
 						<view class="text-FC3B00">
 							<text class="u-font-22">¥</text>
-							<text class="u-font-34">19.90</text>
+							<text class="u-font-34">{{item.marketprice}}</text>
 						</view>
 						<view class="u-m-r-30">
 							<image :src="imgUrl+'images/cart.png'" mode="widthFix" style="width: 50upx;"></image>
@@ -50,30 +62,9 @@
 					</view>
 				</view>
 			</view>
-			<view class="goods_item jus-spB u-border-bottom">
-				<image :src="imgUrl+'images/copy/cdjh.png'" mode="aspectFill"></image>
-				<view class="goods_item_info jus-spB-col">
-					<view class="u-font-28 u-line-2">
-						日本美瞳日抛Flanmy隐形眼镜近视桥本环奈自然大直径
-					</view>
-					<view class="u-font-22" style="color: #B8B8B8;">
-						99/副,158/2副,全新震撼上市
-					</view>
-					<view class="">
-						<u-tag text="IVHOICE" type="" size="mini" color="#A79A86" bg-color="#F7F6DD" />
-					</view>
-					<view class="jus-spB">
-						<view class="text-FC3B00">
-							<text class="u-font-22">¥</text>
-							<text class="u-font-34">19.90</text>
-						</view>
-						<view class="u-m-r-30">
-							<image :src="imgUrl+'images/cart.png'" mode="widthFix" style="width: 50upx;"></image>
-						</view>
-					</view>
-				</view>
-			</view>
+
 		</view>
+		<u-loadmore :status="status" />
 	</view>
 </template>
 
@@ -83,14 +74,22 @@
 		data() {
 			return {
 				imgUrl: http.imgUrl,
+				status: 'loadmore', //列表底部加载状态
 				searchKeyWord: '',
 				screenIndex: 1,
-				screenModalShow: false
+				pNum: 1, //页码
+				sellnum: '', //销量
+				new: '', //最新
+				price: '', //价格
+				screenModalShow: false,
+				userInfo: null,
+				goodsList: []
 			}
 		},
 		onLoad: function() {
-
+			this.userInfo = uni.getStorageSync('userInfo')
 			this.allRequest()
+			console.log(this.userInfo)
 		},
 		onShow: function() {
 
@@ -100,40 +99,92 @@
 			// uni.stopPullDownRefresh(); //停止下拉刷新动画
 		},
 		onReachBottom: function() {
-
+			if (this.status !== 'nomore') {
+				++this.pNum
+				this.getGoodsList()
+			}
 		},
 		methods: {
 			allRequest: function() {
-
+				this.getGoodsList()
 			},
-			aa: function() {
+			getGoodsList: function() {
+				this.status = 'loading';
 				uni.showLoading({
 					title: '加载中'
 				})
-				let opts = {
-					url: '',
-					method: 'post'
-				};
-				let param = {
-					city_id: '370700',
-				};
-				http.httpTokenRequest(opts, param).then(res => {
-					console.log(res.data);
-					uni.hideLoading()
-				}, error => {
-					console.log(error);
-					uni.hideLoading()
+				let _this = this
+				http.ajax({
+					method: 'POST',
+					url: 'GetGoodsList',
+					data: {
+						uid: _this.userInfo.uid,
+						page: _this.pNum,
+						sellnum: _this.sellnum,
+						price: _this.price,
+						new: _this.new,
+						keywords:_this.searchKeyWord
+					},
+					success: function(res) {
+						let r = JSON.parse(res)
+						if (r.errno == 0) {
+							let data = JSON.parse(res).data
+							if (_this.pNum == 1) {
+								_this.goodsList = []
+							}
+							if (data.list.length < 1) {
+								_this.status = 'nomore';
+							} else {
+								_this.status = 'loadmore';
+							}
+							_this.goodsList = _this.goodsList.concat(data.list)
+							console.log(data)
+						}
+						uni.hideLoading()
+					}
 				})
+				
 			},
 			//搜索
 			searchStart: function() {
 				console.log(this.searchKeyWord)
+				this.pNum = 1
+				this.status = 'loadmore'
+				this.getGoodsList()
 			},
 			screenToggle: function(e) {
-				this.screenIndex = e
-				if (e == 5) {
-					this.screenModalShow = true
+
+
+				switch (e) {
+					case 1:
+						this.price = this.sellnum = this.new = ''
+						break;
+					case 2:
+						this.price = this.sellnum = this.new = ''
+						this.new = 1
+						break;
+					case 3:
+						this.price = this.sellnum = this.new = ''
+						this.sellnum = 1;
+						break;
+					case 4:
+						this.sellnum = this.new = ''
+						console.log(typeof(this.price))
+						console.log(this.price == '1')
+						console.log(this.price)
+
+						this.price = (this.price == '1' ? 2 : 1)
+						break;
+					case 5:
+						this.screenModalShow = true
+						break;
+					default:
+
 				}
+				this.pNum = 1
+				this.status = 'loadmore'
+				this.screenIndex = e
+				this.getGoodsList()
 			}
 		}
 	}
@@ -142,8 +193,8 @@
 <style>
 	.screen_bar_box {
 		padding: 30upx 40upx;
-		z-index: 1077;
-		position: relative;
+		/* z-index: 1077; */
+		/* position: relative; */
 	}
 
 	.screen_bar_item_a {

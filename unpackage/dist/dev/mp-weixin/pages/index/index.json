@@ -7,12 +7,10 @@
     "uni-swiper-dot": "/components/uni-swiper-dot/uni-swiper-dot",
     "u-sticky": "/uview-ui/components/u-sticky/u-sticky",
     "u-tabs": "/uview-ui/components/u-tabs/u-tabs",
-    "u-waterfall": "/uview-ui/components/u-waterfall/u-waterfall",
+    "wfalls-flow": "/components/wfalls-flow/wfalls-flow",
     "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
     "u-popup": "/uview-ui/components/u-popup/u-popup",
     "u-button": "/uview-ui/components/u-button/u-button",
-    "u-toast": "/uview-ui/components/u-toast/u-toast",
-    "index-u-waterfall-left": "/pages/index/index-u-waterfall-left",
-    "index-u-waterfall-right": "/pages/index/index-u-waterfall-right"
+    "u-toast": "/uview-ui/components/u-toast/u-toast"
   }
 }

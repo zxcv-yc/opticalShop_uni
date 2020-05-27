@@ -1,5 +1,5 @@
-let jweixin = require('./node_modules/jweixin-module/lib/index.js')
-
+let jweixin = require('node_modules/jweixin-modle')
+console.log(jweixin)
 async function configWeiXin(callback) {
 	let [errConfig, resConfig] = await api.wxConfig(window.location.href);
 	if (resConfig) {

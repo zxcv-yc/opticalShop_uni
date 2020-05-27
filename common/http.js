@@ -1,17 +1,15 @@
 const baseUrl = 'http://meitong.boyaokj.cn/app/index.php';
 // const URL = 'https://hzdykj.boyaokj.cn/index.php/api/';
-const imgUrl = 'http://twenty-eight.top/static/';
+const imgUrl = 'http://meitong.boyaokj.cn/attachment/';
+// const imgUrl = 'http://twenty-eight.top/static/';
+const PARAM__ = 't=0&c=entry&from=wxapp&a=wxapp&m=ewei_shopv2&i=2&do='
 const httpRequest = (opts, data, loading = true) => {
 	if (loading) {
 		uni.showLoading()
 	}
-	let _p = {
-		i: 1,
-		c: entry,
-		m: ewei_shopv2,
-	}
+
 	let httpDefaultOpts = {
-		url: baseUrl + '?i=1&c=entry&m=ewei_shopv2&do=' + opts.url,
+		url: baseUrl + '?' + PARAM__ + opts.url,
 		data: data,
 		method: opts.method,
 		header: opts.method == 'get' ? {
@@ -35,9 +33,7 @@ const httpRequest = (opts, data, loading = true) => {
 			}
 		)
 	})
-	if (loading) {
-		uni.hideLoading()
-	}
+
 	return promise
 };
 //带Token请求
@@ -98,11 +94,11 @@ const ajax = function(opt) {
 	opt.data = opt.data || null;
 	opt.success = opt.success || function() {};
 	var xmlHttp = null;
-	if (XMLHttpRequest) {
+	// if (XMLHttpRequest) {
 		xmlHttp = new XMLHttpRequest();
-	} else {
-		xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
-	}
+	// } else {
+	// 	xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+	// }
 	var params = [];
 	if (!opt.data.i) {
 		opt.url = opt.url + '&' + 'i=2'

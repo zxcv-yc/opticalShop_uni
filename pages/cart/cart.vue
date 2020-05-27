@@ -9,44 +9,55 @@
 		</view>
 		<u-modal v-model="deleteGoodsModalShow" content="您确定要删除吗" confirm-color="#FC3B00" @confirm="deleteGoods"
 		 :show-cancel-button="true"></u-modal>
-		<u-checkbox-group @change="checkboxGroupChange" active-color="#FC3B00" size="30">
-			<view class="cart_box">
+		<u-checkbox-group @change="checkboxGroupChange" active-color="#FC3B00" size="30" style="width: 100%;">
+			<view class="cart_box" v-if="cartList.length" style="width: 100%;">
 				<view class="cart_item border_radius_10 bgc_fff  jus-spB" v-for="(item,index) in cartList" :key="index">
 					<view class="u-m-r-20">
 						<u-checkbox @change="checkboxChange" v-model="item.checked" :name="item.id" shape="circle" icon-size="20"></u-checkbox>
 					</view>
-					<view class="jus-spB">
-						<image :src="imgUrl+'images/copy/dssd.png'" mode="aspectFill" style="width: 188upx;height: 152upx;" class="border_radius_10"></image>
-						<view class="cart_item_info jus-spB-col">
+					<view class="jus-spB u-flex-1">
+						<image :src="imgUrl+item.thumb" mode="aspectFill" style="width: 188upx;height: 152upx;" class="border_radius_10"></image>
+						<view class="cart_item_info jus-spB-col ">
 							<view class="jus-spB">
-								<view class="u-font-26 text-main u-line-2 cart_item_title">
-									新款美瞳眼睛伴侣套装礼盒 影形彩色隐形眼镜
+								<view class="u-font-26 text-main u-line-2 cart_item_title" style="height: 64upx;">
+									{{item.title}}
 								</view>
 								<view class="" @click.stop="showDeleteGoodsModal()">
 									<image :src="imgUrl+'images/delete.png'" mode="widthFix" style="width: 26upx;"></image>
 								</view>
 							</view>
 							<view class="u-font-22 text-tips">
-								规格:1副,无彩色
+								规格:{{item.title}}
 							</view>
 							<view class="jus-spB">
 								<view class="text-FC3B00">
 									<text class="u-font-20">¥</text>
-									<text class="u-font-34">28.00</text>
+									<text class="u-font-34">{{item.marketprice}}</text>
 								</view>
 								<view class="">
-									<u-number-box :input-width="60" :input-height="40" color="#999" @plus="numberChange" :index="item.id"></u-number-box>
+									<u-number-box :input-width="60" :input-height="40" color="#999" @plus="numberChange" :index="index" :value="item.total"></u-number-box>
 								</view>
 							</view>
 						</view>
 					</view>
 				</view>
 			</view>
+
 		</u-checkbox-group>
-		<view class="u-p-l-30  text-bold u-font-36 text-main">
+
+		<view class="u-p-l-30  text-bold u-font-36 text-main" v-if="cartList.length">
 			为您优选
 		</view>
-		<view class="goods_list jus-spB u-p-t-30 u-p-l-36  u-p-r-36 flex_warp">
+		<view class="cart_none " v-else>
+			<image :src="imgUrl+'images/cart_none.png'" mode="widthFix" style="width: 560upx;height: auto;margin: 30upx auto;"></image>
+			<view class="u-font-28 u-text-center" style="color: #5E6060;">
+				购物车这么空,感觉整个人都不好了
+			</view>
+			<view class="" style="margin: 0 auto; margin-top: 80upx;">
+				<u-button :ripple="true" shape="circle" :custom-style="{width:'212upx',height:'66upx',color:'#5E6060',fontSize:'28upx',backgroundColor:'#ededed'}">信息按钮</u-button>
+			</view>
+		</view>
+		<view class="goods_list jus-spB u-p-t-30 u-p-l-36  u-p-r-36 flex_warp" v-if="cartList.length">
 			<view class="goods_item bgc_fff border_radius_10 ">
 				<view class="">
 					<image :src="imgUrl+'images/copy/dssd.png'" mode="aspectFill" style="width: 328upx;height: 260upx;"></image>
@@ -137,31 +148,18 @@
 				noticeShow: true,
 				che: true,
 				deleteGoodsModalShow: false,
+				userInfo: null,
 				noticeList: [
 					"关于 xxxx产品完税订单更改地址更新说明 通知",
 					"关于 xxxx产品完税订单更改地址更新说明 通知"
 				],
-				checkImgUrl: http.imgUrl+'images/check.png',
-				cartList: [{
-						img: http.imgUrl+'images/copy/dssd.png',
-						id: '11',
-						checked: false,
-					},
-					{
-						img:http.imgUrl+'images/copy/dssd.png',
-						id: '12',
-						checked: false,
-					},
-					{
-						img:http.imgUrl+'images/copy/dssd.png',
-						id: '13',
-						checked: false,
-					}
-				]
+				checkImgUrl: http.imgUrl + 'images/check.png',
+				cartList: []
 			}
 		},
 		onLoad: function() {
-
+			console.log(this.$fun.accMul(3, 2.00))
+			this.userInfo = uni.getStorageSync('userInfo')
 			this.allRequest()
 		},
 		onShow: function() {
@@ -176,25 +174,28 @@
 		},
 		methods: {
 			allRequest: function() {
-
+				this.getMemberCart()
 			},
-			aa: function() {
+			getMemberCart: function() {
 				uni.showLoading({
 					title: '加载中'
 				})
-				let opts = {
-					url: '',
-					method: 'post'
-				};
-				let param = {
-					city_id: '370700',
-				};
-				http.httpTokenRequest(opts, param).then(res => {
-					console.log(res.data);
-					uni.hideLoading()
-				}, error => {
-					console.log(error);
-					uni.hideLoading()
+				let _this = this
+				http.ajax({
+					method: 'POST',
+					url: 'MemberCartInfo',
+					data: {
+						uid: _this.userInfo.uid
+					},
+					success: function(res) {
+						let r = JSON.parse(res)
+						if (r.errno == 0) {
+							let data = JSON.parse(res).data
+							_this.cartList = data
+							console.log(data)
+						}
+						uni.hideLoading()
+					}
 				})
 			},
 			//关闭滚动通知
@@ -204,6 +205,7 @@
 			checkboxGroupChange: function(e) {
 				console.log(e)
 				console.log(this.cartList)
+				console.log(this.getCheckedArr())
 			},
 			checkboxChange: function(e) {
 				// console.log(e)
@@ -211,6 +213,7 @@
 			//单个步进器监听
 			numberChange: function(e) {
 				console.log(e)
+				this.cartList[e.index].total = e.value
 			},
 			showDeleteGoodsModal: function() {
 				this.deleteGoodsModalShow = true
@@ -220,8 +223,15 @@
 			},
 			allChecked: function() {
 				console.log('点击')
-				this.checkImgUrl = this.imgUrl+'images/check_a.png'
+				this.checkImgUrl = this.imgUrl + 'images/check_a.png'
 			},
+			//取选中的对象
+			getCheckedArr: function() {
+				let checkArr = this.cartList.filter(item => {
+					return item.checked
+				})
+				return checkArr
+			}
 		}
 	}
 </script>
@@ -256,7 +266,7 @@
 		padding: 20upx;
 		width: 100%;
 		position: fixed;
-		bottom:50px;
+		bottom: 50px;
 	}
 
 	.settlement_btn {

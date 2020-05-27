@@ -97,34 +97,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "u-swiper": function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-swiper/u-swiper */ "uview-ui/components/u-swiper/u-swiper").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-swiper/u-swiper.vue */ 294))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-swiper/u-swiper */ "uview-ui/components/u-swiper/u-swiper").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-swiper/u-swiper.vue */ 303))
   },
   "u-icon": function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-icon/u-icon */ "uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-icon/u-icon.vue */ 301))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-icon/u-icon */ "uview-ui/components/u-icon/u-icon").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-icon/u-icon.vue */ 310))
   },
   "uni-swiper-dot": function() {
-    return __webpack_require__.e(/*! import() | components/uni-swiper-dot/uni-swiper-dot */ "components/uni-swiper-dot/uni-swiper-dot").then(__webpack_require__.bind(null, /*! @/components/uni-swiper-dot/uni-swiper-dot.vue */ 308))
+    return __webpack_require__.e(/*! import() | components/uni-swiper-dot/uni-swiper-dot */ "components/uni-swiper-dot/uni-swiper-dot").then(__webpack_require__.bind(null, /*! @/components/uni-swiper-dot/uni-swiper-dot.vue */ 317))
   },
   "u-sticky": function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-sticky/u-sticky */ "uview-ui/components/u-sticky/u-sticky").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-sticky/u-sticky.vue */ 315))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-sticky/u-sticky */ "uview-ui/components/u-sticky/u-sticky").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-sticky/u-sticky.vue */ 324))
   },
   "u-tabs": function() {
-    return Promise.all(/*! import() | uview-ui/components/u-tabs/u-tabs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs/u-tabs")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs/u-tabs.vue */ 322))
+    return Promise.all(/*! import() | uview-ui/components/u-tabs/u-tabs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-tabs/u-tabs")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-tabs/u-tabs.vue */ 331))
   },
-  "u-waterfall": function() {
-    return Promise.all(/*! import() | uview-ui/components/u-waterfall/u-waterfall */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uview-ui/components/u-waterfall/u-waterfall")]).then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-waterfall/u-waterfall.vue */ 329))
+  "wfalls-flow": function() {
+    return __webpack_require__.e(/*! import() | components/wfalls-flow/wfalls-flow */ "components/wfalls-flow/wfalls-flow").then(__webpack_require__.bind(null, /*! @/components/wfalls-flow/wfalls-flow.vue */ 338))
   },
   "u-loadmore": function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-loadmore/u-loadmore */ "uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-loadmore/u-loadmore.vue */ 336))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-loadmore/u-loadmore */ "uview-ui/components/u-loadmore/u-loadmore").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-loadmore/u-loadmore.vue */ 345))
   },
   "u-popup": function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-popup/u-popup */ "uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-popup/u-popup.vue */ 343))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-popup/u-popup */ "uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-popup/u-popup.vue */ 352))
   },
   "u-button": function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-button/u-button */ "uview-ui/components/u-button/u-button").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-button/u-button.vue */ 350))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-button/u-button */ "uview-ui/components/u-button/u-button").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-button/u-button.vue */ 359))
   },
   "u-toast": function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-toast/u-toast */ "uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-toast/u-toast.vue */ 357))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-toast/u-toast */ "uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-toast/u-toast.vue */ 366))
   }
 }
 var render = function() {
@@ -388,104 +388,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var _junyiH5Copy = _interopRequireDefault(__webpack_require__(/*! ../../js_sdk/junyi-h5-copy/junyi-h5-copy/junyi-h5-copy.js */ 48));
-var _http = _interopRequireDefault(__webpack_require__(/*! ../../common/http.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uniSwiperDot = function uniSwiperDot() {__webpack_require__.e(/*! require.ensure | components/uni-swiper-dot/uni-swiper-dot */ "components/uni-swiper-dot/uni-swiper-dot").then((function () {return resolve(__webpack_require__(/*! @/components/uni-swiper-dot/uni-swiper-dot.vue */ 308));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+var _http = _interopRequireDefault(__webpack_require__(/*! ../../common/http.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(n);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}var uniSwiperDot = function uniSwiperDot() {__webpack_require__.e(/*! require.ensure | components/uni-swiper-dot/uni-swiper-dot */ "components/uni-swiper-dot/uni-swiper-dot").then((function () {return resolve(__webpack_require__(/*! @/components/uni-swiper-dot/uni-swiper-dot.vue */ 317));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var wfallsFlow = function wfallsFlow() {__webpack_require__.e(/*! require.ensure | components/wfalls-flow/wfalls-flow */ "components/wfalls-flow/wfalls-flow").then((function () {return resolve(__webpack_require__(/*! ../../components/wfalls-flow/wfalls-flow */ 338));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   components: {
-    uniSwiperDot: uniSwiperDot },
-
+    uniSwiperDot: uniSwiperDot,
+    wfallsFlow: wfallsFlow },
 
   data: function data() {
     return {
@@ -494,13 +404,7 @@ var _http = _interopRequireDefault(__webpack_require__(/*! ../../common/http.js 
       isShowTop: false,
       listTop: null,
       showShareModal: false, //分享弹框
-      swiperList: [{
-        image: _http.default.imgUrl + 'images/copy/dssd.png' },
-
-      {
-        image: _http.default.imgUrl + 'images/copy/list_head.png' }],
-
-
+      swiperList: [],
       wxNum: 'x769612131',
       ServiceModal: false,
       menuList: [],
@@ -515,21 +419,27 @@ var _http = _interopRequireDefault(__webpack_require__(/*! ../../common/http.js 
       {
         cate_name: '好物种草',
         id: 2 },
+
       {
         cate_name: '伴侣盒',
         id: 3 },
+
       {
         cate_name: '护理液',
         id: 4 },
+
       {
         cate_name: '大牌精选',
         id: 5 },
+
       {
         cate_name: '热卖',
         id: 6 },
+
       {
         cate_name: '伴侣盒',
         id: 7 }],
+
 
       tabBgColor: '#fff',
       loadStatus: 'loadmore',
@@ -672,196 +582,107 @@ var _http = _interopRequireDefault(__webpack_require__(/*! ../../common/http.js 
   },
   onLoad: function onLoad() {
     this.allRequest();
-    // 获取URL 上code
-    // const code = this.getUrlParam('code')
-    // alert(code)
-    // // 判断是否存在code
-    // if (code == null || code == '') {
-    // 	// 重新获取code
-    // 	console.log(code)
-
-    // 	// window.location.href = wx_url
-    // } else {
-    // 	// 发送code         
-    // 	console.log('发送code,' + code)
-    // 	// this.postCode(code)
-    // }
 
   },
   onPageScroll: function onPageScroll(e) {
+
     if (e.scrollTop > this.listTop) {
       this.isShowTop = 1;
     } else {
       this.isShowTop = false;
     }
-    console.log(e);
+
   },
 
-  mounted: function mounted() {var _this = this;
-
+  mounted: function mounted() {var _this2 = this;
     var query = uni.createSelectorQuery().in(this);
-    query.select('.goods_list_box').boundingClientRect(function (data) {
+    query.
+    select('.goods_list_box').
+    boundingClientRect(function (data) {
       // console.log(data);
-      _this.listTop = data.top;
-    }).exec();
+      _this2.listTop = data.top;
+    }).
+    exec();
   },
-  onReachBottom: function onReachBottom() {var _this2 = this;
-    this.loadStatus = 'loading';
-    // 模拟数据加载
-    setTimeout(function () {
-      _this2.aa();
+  onReachBottom: function onReachBottom() {var _this3 = this;
+    if (this.tabIndex == 0) {
+      this.loadStatus = 'loading';
+      uni.showLoading({
+        title: '正在加载更多' });
 
-      _this2.a_list = [];
-    }, 1000);
+      // 模拟分页请求 (加载更多)
+      setTimeout(function () {var _this3$list;
+        var nextData = JSON.parse(JSON.stringify(_this3.a_list));
+        (_this3$list = _this3.list).push.apply(_this3$list, _toConsumableArray(nextData));
+        // this.$nextTick(()=>{
+        //     this.$refs.wfalls.handleViewRender();
+        // })
+        // APP上触发不了还是setTimeout万能
+        setTimeout(function () {
+          _this3.$refs.wfalls.handleViewRender();
+        }, 0);
+        uni.hideLoading();
+      }, 800);
+    }
+
   },
   methods: {
     allRequest: function allRequest() {
       this.getMenu();
-      this.addRandomData();
-      this.aabb();
+      this.getBanner();
     },
-    // 解析URL 参数
-    getUrlParam: function getUrlParam(name) {
-      var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
-      var r = window.location.search.substr(1).match(reg);
-      if (r != null) {
-        return unescape(r[2]);
-      }
-      return null;
-    },
-    // 发送code 获取信息
-    // postCode(code) {
-    // 	uni.request({
-    // 		url: 'https://www.example.com/request', //发送code给后台。
-    // 		success: (res) => {
-    // 			//res里面包含用户信息  openid等
-    // 		}
-    // 	});
-    // },
-    aabb: function aabb() {
-      console.log('执行aabb');
-      uni.showLoading({
-        title: '加载中' });
-
+    //获取轮播图
+    getBanner: function getBanner() {
+      var _this = this;
       _http.default.ajax({
         method: 'POST',
-        url: 'Test',
-        data: {},
+        url: 'GetBanner',
+        data: {
+          shopid: 0 },
+
         success: function success(res) {
-          console.log(res);
-          uni.hideLoading();
+          var data = JSON.parse(res).data;
+          for (var i in data) {
+            data[i].image = _this.imgUrl + data[i].thumb;
+          }
+          _this.swiperList = data;
         } });
 
     },
+    //获取菜单
     getMenu: function getMenu() {
-      var menu_result = [];
-      var menu_arr = [{
-        img: this.imgUrl + 'images/menu/meitong.png',
-        name: '美瞳',
-        url: 'pages/index/index?id=11' },
+      var _this = this;
+      _http.default.ajax({
+        method: 'POST',
+        url: 'GetCate',
+        data: {
+          parentid: 0 },
 
-      {
-        img: this.imgUrl + 'images/menu/touming.png',
-        name: '透明片',
-        url: 'pages/index/index?id=11' },
-
-      {
-        img: this.imgUrl + 'images/menu/zhoubian.png',
-        name: '护理周边',
-        url: 'pages/index/index?id=11' },
-
-      {
-        img: this.imgUrl + 'images/menu/haiwai.png',
-        name: '海外精品',
-        url: 'pages/index/index?id=11' },
-
-      {
-        img: this.imgUrl + 'images/menu/jvjia.png',
-        name: '居家生活',
-        url: 'pages/index/index?id=11' },
-
-      {
-        img: this.imgUrl + 'images/menu/shengxian.png',
-        name: '食物生鲜',
-        url: 'pages/index/index?id=11' },
-
-      {
-        img: this.imgUrl + 'images/menu/hufu.png',
-        name: '医美护肤',
-        url: 'pages/index/index?id=11' },
-
-      {
-        img: this.imgUrl + 'images/menu/yinliu.png',
-        name: '福利引流',
-        url: 'pages/index/index?id=11' },
-
-      {
-        img: this.imgUrl + 'images/menu/fengge.png',
-        name: '美瞳风格',
-        url: 'pages/index/index?id=11' },
-
-      {
-        img: this.imgUrl + 'images/menu/sexi.png',
-        name: '色系',
-        url: 'pages/index/index?id=11' },
-
-      {
-        img: this.imgUrl + 'images/menu/caizhi.png',
-        name: '材质',
-        url: 'pages/index/index?id=11' },
-
-      {
-        img: this.imgUrl + 'images/menu/zhijing.png',
-        name: '美瞳直径',
-        url: 'pages/index/index?id=11' },
-
-
-      {
-        img: this.imgUrl + 'images/menu/yuepao.png',
-        name: '月抛美瞳',
-        url: 'pages/index/index?id=11' }];
-
-
-      console.log(menu_arr.length);
-      for (var i = 0; i < menu_arr.length; i += 8) {//将数组重组，每一个为一个单独的数组
-        menu_result.push(menu_arr.slice(i, i + 8));
-      }
-      this.menuList = menu_result;
-      console.log(menu_result);
-    },
-    aa: function aa() {
-      if (this.a_list.length < 1) {
-        this.loadStatus = 'nomore';
-      } else {
-        for (var i = 0; i < 10; i++) {
-          var index = this.$u.random(0, this.a_list.length - 1);
-          // 先转成字符串再转成对象，避免数组对象引用导致数据混乱
-          var item = JSON.parse(JSON.stringify(this.a_list[index]));
-          item.id = this.$u.guid();
-          this.flowList.push(item);
-        }
-        this.loadStatus = 'loadmore';
-      }
+        success: function success(res) {
+          var data = JSON.parse(res).data;
+          var menu_result = [];
+          for (var i = 0; i < data.length; i += 8) {
+            //将数组重组，每一个为一个单独的数组
+            menu_result.push(data.slice(i, i + 8));
+          }
+          _this.menuList = menu_result;
+        } });
 
     },
-    addRandomData: function addRandomData() {
-      for (var i = 0; i < 10; i++) {
-        var index = this.$u.random(0, this.list.length - 1);
-        // 先转成字符串再转成对象，避免数组对象引用导致数据混乱
-        var item = JSON.parse(JSON.stringify(this.list[index]));
-        item.id = this.$u.guid();
-        this.flowList.push(item);
-      }
-    },
+
     swiperChange: function swiperChange(e) {
       this.current = e.detail.current;
     },
     scroll: function scroll(e) {
-      console.log(e);
+
       this.old.scrollTop = e.detail.scrollTop;
     },
     clickTab: function clickTab(e) {
       this.tabIndex = e;
+      // uni.pageScrollTo({
+      // 	scrollTop: 750,
+      // 	duration: 300
+      // });
     },
     stickyActive: function stickyActive() {
       // this.tabBgColor = '#fff'
@@ -878,7 +699,7 @@ var _http = _interopRequireDefault(__webpack_require__(/*! ../../common/http.js 
     },
     goBrandList: function goBrandList() {
       uni.navigateTo({
-        url: "../brand/choicenessBrand" });
+        url: '../brand/choicenessBrand' });
 
     },
     goGoodInfo: function goGoodInfo() {
@@ -896,7 +717,6 @@ var _http = _interopRequireDefault(__webpack_require__(/*! ../../common/http.js 
       } else {
         this.showToast('复制成功！', 'success');
       }
-
     },
     showToast: function showToast(title, type, url, param) {
       this.$refs.uToast.show({
@@ -910,6 +730,13 @@ var _http = _interopRequireDefault(__webpack_require__(/*! ../../common/http.js 
       uni.navigateTo({
         url: '../goods/flashSale' });
 
+    },
+    listHeadClick: function listHeadClick() {
+      console.log('点击listHead');
+    },
+    //点击瀑布流商品
+    goodItemClick: function goodItemClick(e) {
+      console.log(e);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
