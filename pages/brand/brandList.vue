@@ -141,7 +141,8 @@
 			//滚动到底部/右边触发
 			scrolltolower() {
 				console.log(1111);
-				this.showToast('没有更多了', 'warning')
+				this.$fun.showToast(this,'没有更多了', 'warning')
+				// this.showToast('没有更多了', 'warning')
 			},
 			// 滚动到顶部/左边触发
 			scrolltoupper() {

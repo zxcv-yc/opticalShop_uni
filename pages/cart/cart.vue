@@ -35,7 +35,7 @@
 									<text class="u-font-34">{{item.marketprice}}</text>
 								</view>
 								<view class="">
-									<u-number-box :input-width="60" :input-height="40" color="#999" @plus="numberChange" :index="index" :value="item.total"></u-number-box>
+									<u-number-box :input-width="60" :input-height="40" color="#999" @change="numberChange" :index="index" :value="item.total"></u-number-box>
 								</view>
 							</view>
 						</view>
@@ -118,17 +118,23 @@
 		<view class="bottom_bar jus-spB bgc_fff">
 			<view class="" @click="allChecked">
 				<view class="u-p-15 jus-spB">
-					<view class="">
-						<image :src="checkImgUrl" mode="widthFix" style="width: 30upx;"></image>
+					<checkbox-group>
+						<label>
+							<checkbox value="cb" :checked="isAll" />全选
+						</label>
+					</checkbox-group>
+					<!-- <view class="">
+						<image :src="totalGoodsLength==cartList.length?imgUrl + 'images/check_a.png':imgUrl + 'images/check.png'" mode="widthFix"
+						 style="width: 30upx;"></image>
 					</view>
 					<view class="u-font-28 text-tips u-m-l-15">
 						全选
-					</view>
+					</view> -->
 				</view>
 			</view>
 			<view class="jus-end">
 				<view class="text-tips u-font-24">
-					共<text class="text-FC3B00">3</text>件，合计：<text class="text-FC3B00">¥</text><text class="text-FC3B00 u-font-34">28.00</text>
+					共<text class="text-FC3B00">{{totalGoodsLength}}</text>件，合计：<text class="text-FC3B00">¥</text><text class="text-FC3B00 u-font-34">{{totalPrice}}</text>
 				</view>
 				<view class="settlement_btn">
 					结算
@@ -153,9 +159,9 @@
 					"关于 xxxx产品完税订单更改地址更新说明 通知",
 					"关于 xxxx产品完税订单更改地址更新说明 通知"
 				],
-				checkImgUrl: http.imgUrl + 'images/check.png',
-				totalPrice: null,
-				totalGoodsLength:0,
+
+				totalPrice: 0,
+				totalGoodsLength: 0,
 				// cartList: []
 				cartList: [{
 					checked: true,
@@ -178,7 +184,7 @@
 		},
 		onLoad: function() {
 			// console.log(this.getTotalPrice())
-			console.log(this.$fun.accMul('3', '2.00'))
+			// console.log(this.$fun.accMul('3', '2.00'))
 			this.userInfo = uni.getStorageSync('userInfo')
 			this.allRequest()
 		},
@@ -224,8 +230,6 @@
 			},
 			checkboxGroupChange: function(e) {
 				console.log(e)
-				console.log(this.cartList)
-				console.log(this.getTotalPrice())
 				this.totalGoodsLength = e.length
 				this.totalPrice = this.getTotalPrice()
 			},
@@ -236,6 +240,7 @@
 			numberChange: function(e) {
 				console.log(e)
 				this.cartList[e.index].total = e.value
+				this.totalPrice = this.getTotalPrice()
 			},
 			showDeleteGoodsModal: function() {
 				this.deleteGoodsModalShow = true
@@ -244,12 +249,29 @@
 				console.log('点击确定')
 			},
 			allChecked: function() {
-				console.log('点击')
-				this.checkImgUrl = this.imgUrl + 'images/check_a.png'
+				console.log('触发全选')
+				let _this = this
+				let _cartList = this.cartList
+				if (this.totalGoodsLength == this.cartList.length) {
+					for (let i of _cartList) {
+						i.checked = false
+					}
+					this.cartList = []
+					this.cartList = _cartList
+
+				} else {
+					for (let i of _cartList) {
+						i.checked = true
+					}
+					this.cartList = []
+					this.cartList = _cartList
+				}
+				console.log(_cartList)
 			},
 
 			//计算总价 1过滤2单个商品总价3总价
 			getTotalPrice: function() {
+				let _this = this
 				return _this.cartList.filter(item => item.checked).map(i => _this.$fun.accMul(i.total, i.marketprice)).reduce((
 					pre, n) => _this.$fun.accAdd(pre, n), 0).toFixed(2)
 			}
